@@ -1,0 +1,60 @@
+# アーキテクチャ実験用設定ファイル
+
+# 実験1：Small Model (現在の設定ベース)
+experiment_1:
+  hidden_size: 64
+  hidden_layers: [64, 32]
+  description: "軽量モデル - 過学習リスク低"
+  expected_performance: "安定だが表現力制限"
+
+# 実験2：Medium Model (推奨設定)
+experiment_2:
+  hidden_size: 128
+  hidden_layers: [128, 64, 32]
+  description: "バランス型 - 表現力と安定性のバランス"
+  expected_performance: "最適な性能が期待される"
+
+# 実験3：Large Model
+experiment_3:
+  hidden_size: 256
+  hidden_layers: [256, 128, 64, 32]
+  description: "高表現力モデル - 過学習リスク有"
+  expected_performance: "事前学習データが豊富な場合に有効"
+
+# 実験4：Wide but Shallow
+experiment_4:
+  hidden_size: 256
+  hidden_layers: [256, 128]
+  description: "幅広く浅いモデル"
+  expected_performance: "特徴抽出重視"
+
+# ドメイン適応特有の推奨事項
+domain_adaptation_recommendations:
+  pretrain_phase:
+    # 事前学習では大きなモデルで豊かな特徴を学習
+    preferred_config: "experiment_2 or experiment_3"
+    rationale: "FeCuデータから汎用的特徴を抽出"
+    
+  finetune_phase:
+    # ファインチューニングでは安定性重視
+    dropout_increase: 0.2  # 0.1 → 0.2
+    learning_rate_decay: true
+    batch_norm_keep: true
+    rationale: "少ないFeFeデータでの過学習防止"
+
+# 学習データ数による推奨
+data_size_recommendations:
+  learning_64:
+    hidden_size: 64
+    hidden_layers: [64, 32]
+    reason: "データが少ないため軽量モデル"
+    
+  learning_128:
+    hidden_size: 128
+    hidden_layers: [128, 64]
+    reason: "中程度のデータ量に適したバランス型"
+    
+  learning_256:
+    hidden_size: 128
+    hidden_layers: [128, 64, 32]
+    reason: "十分なデータでより複雑なモデル可能"

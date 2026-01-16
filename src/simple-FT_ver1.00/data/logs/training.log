@@ -1,0 +1,658 @@
+2026-01-16 16:34:06,572 - FineTuning - INFO - Log file created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\logs\training.log
+2026-01-16 16:34:06,574 - FineTuning - INFO - FineTuning Pipeline initialized
+2026-01-16 16:34:06,575 - FineTuning - INFO - Config loaded from: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\config\config.yaml
+2026-01-16 16:34:06,576 - FineTuning - INFO - Using device: cpu
+2026-01-16 16:34:06,588 - FineTuning - INFO - Random seed set to: 42
+2026-01-16 16:34:06,593 - FineTuning - INFO - Experiment directory created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_163406
+2026-01-16 16:34:06,627 - FineTuning - INFO - Model parameters: {'total': 3041, 'trainable': 3041, 'frozen': 0}
+2026-01-16 16:34:06,631 - FineTuning - INFO - Starting Full FineTuning Pipeline
+2026-01-16 16:34:06,631 - FineTuning - INFO - Experiment: fecu_to_fefe_finetune
+2026-01-16 16:34:06,631 - FineTuning - INFO - Description: FeCu source data pretraining + FeFe target data finetuning
+2026-01-16 16:34:06,631 - FineTuning - INFO - ==================================================
+2026-01-16 16:34:06,631 - FineTuning - INFO - STARTING PRETRAINING PHASE (Source Domain)
+2026-01-16 16:34:06,631 - FineTuning - INFO - ==================================================
+2026-01-16 16:34:06,640 - FineTuning - ERROR - Pipeline failed: Raw file not found: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\input\raw\raw\fecu_JF_L4mm_20250120_start_end_150_300_0_rev2_removebaddata.csv
+2026-01-16 16:34:06,687 - FineTuning - ERROR - Traceback (most recent call last):
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\main.py", line 427, in run_full_pipeline
+    pretrain_results = self.run_pretraining()
+                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\main.py", line 188, in run_pretraining
+    source_dataloaders = self.data_manager.prepare_source_data(pattern_name)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\utils\data_loader.py", line 249, in prepare_source_data
+    preprocessed_file = self.run_preprocessing('source')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\utils\data_loader.py", line 127, in run_preprocessing
+    preprocess_data(preprocessing_config)
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\utils\preprocessing.py", line 62, in preprocess_data
+    raise FileNotFoundError(f"Raw file not found: {raw_file_path}")
+FileNotFoundError: Raw file not found: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\input\raw\raw\fecu_JF_L4mm_20250120_start_end_150_300_0_rev2_removebaddata.csv
+
+2026-01-16 16:35:36,760 - FineTuning - INFO - Log file created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\logs\training.log
+2026-01-16 16:35:36,760 - FineTuning - INFO - FineTuning Pipeline initialized
+2026-01-16 16:35:36,760 - FineTuning - INFO - Config loaded from: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\config\config.yaml
+2026-01-16 16:35:36,760 - FineTuning - INFO - Using device: cpu
+2026-01-16 16:35:36,763 - FineTuning - INFO - Random seed set to: 42
+2026-01-16 16:35:36,764 - FineTuning - INFO - Experiment directory created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_163536
+2026-01-16 16:35:36,769 - FineTuning - INFO - Model parameters: {'total': 3041, 'trainable': 3041, 'frozen': 0}
+2026-01-16 16:35:36,770 - FineTuning - INFO - Starting Full FineTuning Pipeline
+2026-01-16 16:35:36,770 - FineTuning - INFO - Experiment: fecu_to_fefe_finetune
+2026-01-16 16:35:36,770 - FineTuning - INFO - Description: FeCu source data pretraining + FeFe target data finetuning
+2026-01-16 16:35:36,770 - FineTuning - INFO - ==================================================
+2026-01-16 16:35:36,771 - FineTuning - INFO - STARTING PRETRAINING PHASE (Source Domain)
+2026-01-16 16:35:36,771 - FineTuning - INFO - ==================================================
+2026-01-16 16:35:44,965 - FineTuning - INFO - Pretraining phase completed
+2026-01-16 16:35:44,965 - FineTuning - INFO - ==================================================
+2026-01-16 16:35:44,965 - FineTuning - INFO - STARTING FINETUNING PHASE (Target Domain)
+2026-01-16 16:35:44,965 - FineTuning - INFO - ==================================================
+2026-01-16 16:35:45,155 - FineTuning - INFO - Finetuning parameters: {'total': 3041, 'trainable': 3041, 'frozen': 0}
+2026-01-16 16:35:46,262 - FineTuning - INFO - Finetuning phase completed
+2026-01-16 16:35:46,262 - FineTuning - INFO - ==================================================
+2026-01-16 16:35:46,262 - FineTuning - INFO - STARTING EVALUATION PHASE
+2026-01-16 16:35:46,262 - FineTuning - INFO - ==================================================
+2026-01-16 16:35:46,271 - FineTuning - INFO - Source domain evaluation: {'MSE': 25612.595703125, 'RMSE': 160.03935673178958, 'MAE': 139.3252410888672, 'R2': -2.891096830368042, 'Mean_Residual': 139.32524, 'Std_Residual': 78.74689, 'Max_Error': 236.88022, 'MAPE': 98.24738502502441, 'Explained_Variance': 0.057925522327423096}
+2026-01-16 16:35:47,785 - FineTuning - INFO - Target domain evaluation: {'MSE': 25612.595703125, 'RMSE': 160.03935673178958, 'MAE': 139.3252410888672, 'R2': -2.891096830368042, 'Mean_Residual': 139.32524, 'Std_Residual': 78.74689, 'Max_Error': 236.88022, 'MAPE': 98.24738502502441, 'Explained_Variance': 0.057925522327423096}
+2026-01-16 16:35:49,783 - FineTuning - ERROR - Pipeline failed: name 'torch' is not defined
+2026-01-16 16:35:49,847 - FineTuning - ERROR - Traceback (most recent call last):
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\main.py", line 433, in run_full_pipeline
+    evaluation_results = self.evaluate_models()
+                         ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\main.py", line 347, in evaluate_models
+    self.evaluator.plot_feature_importance(self.model, feature_names,
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\utils\evaluator.py", line 203, in plot_feature_importance
+    if isinstance(layer, torch.nn.Linear):
+                         ^^^^^
+NameError: name 'torch' is not defined
+
+2026-01-16 16:36:10,471 - FineTuning - INFO - Log file created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\logs\training.log
+2026-01-16 16:36:10,472 - FineTuning - INFO - FineTuning Pipeline initialized
+2026-01-16 16:36:10,472 - FineTuning - INFO - Config loaded from: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\config\config.yaml
+2026-01-16 16:36:10,472 - FineTuning - INFO - Using device: cpu
+2026-01-16 16:36:10,652 - FineTuning - INFO - Random seed set to: 42
+2026-01-16 16:36:10,662 - FineTuning - INFO - Experiment directory created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_163610
+2026-01-16 16:36:10,670 - FineTuning - INFO - Model parameters: {'total': 3041, 'trainable': 3041, 'frozen': 0}
+2026-01-16 16:36:10,675 - FineTuning - INFO - Starting Full FineTuning Pipeline
+2026-01-16 16:36:10,676 - FineTuning - INFO - Experiment: fecu_to_fefe_finetune
+2026-01-16 16:36:10,676 - FineTuning - INFO - Description: FeCu source data pretraining + FeFe target data finetuning
+2026-01-16 16:36:10,677 - FineTuning - INFO - ==================================================
+2026-01-16 16:36:10,678 - FineTuning - INFO - STARTING PRETRAINING PHASE (Source Domain)
+2026-01-16 16:36:10,679 - FineTuning - INFO - ==================================================
+2026-01-16 16:36:16,314 - FineTuning - INFO - Pretraining phase completed
+2026-01-16 16:36:16,314 - FineTuning - INFO - ==================================================
+2026-01-16 16:36:16,314 - FineTuning - INFO - STARTING FINETUNING PHASE (Target Domain)
+2026-01-16 16:36:16,314 - FineTuning - INFO - ==================================================
+2026-01-16 16:36:16,335 - FineTuning - INFO - Finetuning parameters: {'total': 3041, 'trainable': 3041, 'frozen': 0}
+2026-01-16 16:36:17,757 - FineTuning - INFO - Finetuning phase completed
+2026-01-16 16:36:17,757 - FineTuning - INFO - ==================================================
+2026-01-16 16:36:17,757 - FineTuning - INFO - STARTING EVALUATION PHASE
+2026-01-16 16:36:17,757 - FineTuning - INFO - ==================================================
+2026-01-16 16:36:17,766 - FineTuning - INFO - Source domain evaluation: {'MSE': 25612.595703125, 'RMSE': 160.03935673178958, 'MAE': 139.3252410888672, 'R2': -2.891096830368042, 'Mean_Residual': 139.32524, 'Std_Residual': 78.74689, 'Max_Error': 236.88022, 'MAPE': 98.24738502502441, 'Explained_Variance': 0.057925522327423096}
+2026-01-16 16:36:19,325 - FineTuning - INFO - Target domain evaluation: {'MSE': 25612.595703125, 'RMSE': 160.03935673178958, 'MAE': 139.3252410888672, 'R2': -2.891096830368042, 'Mean_Residual': 139.32524, 'Std_Residual': 78.74689, 'Max_Error': 236.88022, 'MAPE': 98.24738502502441, 'Explained_Variance': 0.057925522327423096}
+2026-01-16 16:36:21,564 - FineTuning - ERROR - Pipeline failed: name 'torch' is not defined
+2026-01-16 16:36:21,564 - FineTuning - ERROR - Traceback (most recent call last):
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\main.py", line 433, in run_full_pipeline
+    evaluation_results = self.evaluate_models()
+                         ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\main.py", line 347, in evaluate_models
+    self.evaluator.plot_feature_importance(self.model, feature_names,
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\utils\evaluator.py", line 203, in plot_feature_importance
+    if isinstance(layer, torch.nn.Linear):
+                         ^^^^^
+NameError: name 'torch' is not defined
+
+2026-01-16 16:37:46,587 - FineTuning - INFO - Log file created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\logs\training.log
+2026-01-16 16:37:46,587 - FineTuning - INFO - FineTuning Pipeline initialized
+2026-01-16 16:37:46,587 - FineTuning - INFO - Config loaded from: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\config\config.yaml
+2026-01-16 16:37:46,589 - FineTuning - INFO - Using device: cpu
+2026-01-16 16:37:46,590 - FineTuning - INFO - Random seed set to: 42
+2026-01-16 16:37:46,592 - FineTuning - INFO - Experiment directory created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_163746
+2026-01-16 16:37:46,598 - FineTuning - INFO - Model parameters: {'total': 3041, 'trainable': 3041, 'frozen': 0}
+2026-01-16 16:37:46,599 - FineTuning - INFO - Starting Full FineTuning Pipeline
+2026-01-16 16:37:46,600 - FineTuning - INFO - Experiment: fecu_to_fefe_finetune
+2026-01-16 16:37:46,600 - FineTuning - INFO - Description: FeCu source data pretraining + FeFe target data finetuning
+2026-01-16 16:37:46,600 - FineTuning - INFO - ==================================================
+2026-01-16 16:37:46,600 - FineTuning - INFO - STARTING PRETRAINING PHASE (Source Domain)
+2026-01-16 16:37:46,601 - FineTuning - INFO - ==================================================
+2026-01-16 16:37:53,736 - FineTuning - INFO - Pretraining phase completed
+2026-01-16 16:37:53,736 - FineTuning - INFO - ==================================================
+2026-01-16 16:37:53,736 - FineTuning - INFO - STARTING FINETUNING PHASE (Target Domain)
+2026-01-16 16:37:53,736 - FineTuning - INFO - ==================================================
+2026-01-16 16:37:53,756 - FineTuning - INFO - Finetuning parameters: {'total': 3041, 'trainable': 3041, 'frozen': 0}
+2026-01-16 16:37:54,960 - FineTuning - INFO - Finetuning phase completed
+2026-01-16 16:37:54,960 - FineTuning - INFO - ==================================================
+2026-01-16 16:37:54,960 - FineTuning - INFO - STARTING EVALUATION PHASE
+2026-01-16 16:37:54,963 - FineTuning - INFO - ==================================================
+2026-01-16 16:37:54,969 - FineTuning - INFO - Source domain evaluation: {'MSE': 25612.595703125, 'RMSE': 160.03935673178958, 'MAE': 139.3252410888672, 'R2': -2.891096830368042, 'Mean_Residual': 139.32524, 'Std_Residual': 78.74689, 'Max_Error': 236.88022, 'MAPE': 98.24738502502441, 'Explained_Variance': 0.057925522327423096}
+2026-01-16 16:37:55,848 - FineTuning - INFO - Target domain evaluation: {'MSE': 25612.595703125, 'RMSE': 160.03935673178958, 'MAE': 139.3252410888672, 'R2': -2.891096830368042, 'Mean_Residual': 139.32524, 'Std_Residual': 78.74689, 'Max_Error': 236.88022, 'MAPE': 98.24738502502441, 'Explained_Variance': 0.057925522327423096}
+2026-01-16 16:37:59,781 - FineTuning - INFO - Evaluation phase completed
+2026-01-16 16:37:59,784 - FineTuning - INFO - Final results saved to: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_163746\results\final_results.json
+2026-01-16 16:37:59,784 - FineTuning - INFO - Results summary saved to: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_163746\results\results_summary.csv
+2026-01-16 16:37:59,784 - FineTuning - ERROR - Pipeline failed: 'FineTuningPipeline' object has no attribute 'config_path'
+2026-01-16 16:37:59,794 - FineTuning - ERROR - Traceback (most recent call last):
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\main.py", line 436, in run_full_pipeline
+    self.save_final_results(pretrain_results, finetune_results, evaluation_results)
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\main.py", line 411, in save_final_results
+    shutil.copy2(self.config_path, config_copy_path)
+                 ^^^^^^^^^^^^^^^^
+AttributeError: 'FineTuningPipeline' object has no attribute 'config_path'
+
+2026-01-16 16:43:51,594 - FineTuning - INFO - Log file created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\logs\training.log
+2026-01-16 16:43:51,599 - FineTuning - INFO - FineTuning Pipeline initialized
+2026-01-16 16:43:51,600 - FineTuning - INFO - Config loaded from: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\config\config.yaml
+2026-01-16 16:43:51,600 - FineTuning - INFO - Using device: cpu
+2026-01-16 16:43:51,616 - FineTuning - INFO - Random seed set to: 42
+2026-01-16 16:43:51,624 - FineTuning - INFO - Experiment directory created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_164351
+2026-01-16 16:43:51,679 - FineTuning - INFO - Model parameters: {'total': 50369, 'trainable': 50369, 'frozen': 0}
+2026-01-16 16:43:51,688 - FineTuning - INFO - Starting Full FineTuning Pipeline
+2026-01-16 16:43:51,688 - FineTuning - INFO - Experiment: fecu_to_fefe_finetune
+2026-01-16 16:43:51,688 - FineTuning - INFO - Description: FeCu source data pretraining + FeFe target data finetuning
+2026-01-16 16:43:51,688 - FineTuning - INFO - ==================================================
+2026-01-16 16:43:51,688 - FineTuning - INFO - STARTING PRETRAINING PHASE (Source Domain)
+2026-01-16 16:43:51,695 - FineTuning - INFO - ==================================================
+2026-01-16 16:44:00,483 - FineTuning - INFO - Pretraining phase completed
+2026-01-16 16:44:00,483 - FineTuning - INFO - ==================================================
+2026-01-16 16:44:00,483 - FineTuning - INFO - STARTING FINETUNING PHASE (Target Domain)
+2026-01-16 16:44:00,483 - FineTuning - INFO - ==================================================
+2026-01-16 16:44:00,509 - FineTuning - INFO - Finetuning parameters: {'total': 50369, 'trainable': 50369, 'frozen': 0}
+2026-01-16 16:44:03,777 - FineTuning - INFO - Finetuning phase completed
+2026-01-16 16:44:03,777 - FineTuning - INFO - ==================================================
+2026-01-16 16:44:03,783 - FineTuning - INFO - STARTING EVALUATION PHASE
+2026-01-16 16:44:03,783 - FineTuning - INFO - ==================================================
+2026-01-16 16:44:03,794 - FineTuning - INFO - Source domain evaluation: {'MSE': 4499.21875, 'RMSE': 67.0762159785419, 'MAE': 47.19114303588867, 'R2': 0.31647318601608276, 'Mean_Residual': -17.470509, 'Std_Residual': 64.7611, 'Max_Error': 161.01169, 'MAPE': 208.60464572906494, 'Explained_Variance': 0.362842321395874}
+2026-01-16 16:44:04,701 - FineTuning - INFO - Target domain evaluation: {'MSE': 4499.21875, 'RMSE': 67.0762159785419, 'MAE': 47.19114303588867, 'R2': 0.31647318601608276, 'Mean_Residual': -17.470509, 'Std_Residual': 64.7611, 'Max_Error': 161.01169, 'MAPE': 208.60464572906494, 'Explained_Variance': 0.362842321395874}
+2026-01-16 16:44:08,487 - FineTuning - INFO - Evaluation phase completed
+2026-01-16 16:44:08,503 - FineTuning - INFO - Final results saved to: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_164351\results\final_results.json
+2026-01-16 16:44:08,503 - FineTuning - INFO - Results summary saved to: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_164351\results\results_summary.csv
+2026-01-16 16:44:08,504 - FineTuning - ERROR - Pipeline failed: 'FineTuningPipeline' object has no attribute 'config_path'
+2026-01-16 16:44:08,506 - FineTuning - ERROR - Traceback (most recent call last):
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\main.py", line 436, in run_full_pipeline
+    self.save_final_results(pretrain_results, finetune_results, evaluation_results)
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\main.py", line 411, in save_final_results
+    shutil.copy2(self.config_path, config_copy_path)
+                 ^^^^^^^^^^^^^^^^
+AttributeError: 'FineTuningPipeline' object has no attribute 'config_path'
+
+2026-01-16 16:47:11,592 - FineTuning - INFO - Log file created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\logs\training.log
+2026-01-16 16:47:11,592 - FineTuning - INFO - FineTuning Pipeline initialized
+2026-01-16 16:47:11,594 - FineTuning - INFO - Config loaded from: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\config\config.yaml
+2026-01-16 16:47:11,594 - FineTuning - INFO - Using device: cpu
+2026-01-16 16:47:11,596 - FineTuning - INFO - Random seed set to: 42
+2026-01-16 16:47:11,599 - FineTuning - INFO - Experiment directory created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_164711
+2026-01-16 16:47:11,602 - FineTuning - INFO - Model parameters: {'total': 50369, 'trainable': 50369, 'frozen': 0}
+2026-01-16 16:47:11,604 - FineTuning - INFO - Starting Full FineTuning Pipeline
+2026-01-16 16:47:11,604 - FineTuning - INFO - Experiment: fecu_to_fefe_finetune
+2026-01-16 16:47:11,604 - FineTuning - INFO - Description: FeCu source data pretraining + FeFe target data finetuning
+2026-01-16 16:47:11,604 - FineTuning - INFO - ==================================================
+2026-01-16 16:47:11,604 - FineTuning - INFO - STARTING PRETRAINING PHASE (Source Domain)
+2026-01-16 16:47:11,604 - FineTuning - INFO - ==================================================
+2026-01-16 16:47:19,386 - FineTuning - INFO - Pretraining phase completed
+2026-01-16 16:47:19,386 - FineTuning - INFO - ==================================================
+2026-01-16 16:47:19,386 - FineTuning - INFO - STARTING FINETUNING PHASE (Target Domain)
+2026-01-16 16:47:19,386 - FineTuning - INFO - ==================================================
+2026-01-16 16:47:19,413 - FineTuning - INFO - Finetuning parameters: {'total': 50369, 'trainable': 50369, 'frozen': 0}
+2026-01-16 16:47:21,301 - FineTuning - INFO - Finetuning phase completed
+2026-01-16 16:47:21,301 - FineTuning - INFO - ==================================================
+2026-01-16 16:47:21,301 - FineTuning - INFO - STARTING EVALUATION PHASE
+2026-01-16 16:47:21,301 - FineTuning - INFO - ==================================================
+2026-01-16 16:47:21,311 - FineTuning - INFO - Source domain evaluation: {'MSE': 685.5706787109375, 'RMSE': 26.183404643226545, 'MAE': 20.525413513183594, 'R2': 0.8752648830413818, 'Mean_Residual': 1.4093461, 'Std_Residual': 26.145449, 'Max_Error': 81.48565, 'MAPE': 38.45551311969757, 'Explained_Variance': 0.8756262958049774}
+2026-01-16 16:47:22,798 - FineTuning - INFO - Target domain evaluation: {'MSE': 685.5706787109375, 'RMSE': 26.183404643226545, 'MAE': 20.525413513183594, 'R2': 0.8752648830413818, 'Mean_Residual': 1.4093461, 'Std_Residual': 26.145449, 'Max_Error': 81.48565, 'MAPE': 38.45551311969757, 'Explained_Variance': 0.8756262958049774}
+2026-01-16 16:47:26,312 - FineTuning - INFO - Evaluation phase completed
+2026-01-16 16:47:26,322 - FineTuning - INFO - Final results saved to: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_164711\results\final_results.json
+2026-01-16 16:47:26,323 - FineTuning - INFO - Results summary saved to: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_164711\results\results_summary.csv
+2026-01-16 16:47:26,325 - FineTuning - ERROR - Pipeline failed: 'FineTuningPipeline' object has no attribute 'config_path'
+2026-01-16 16:47:26,328 - FineTuning - ERROR - Traceback (most recent call last):
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\main.py", line 436, in run_full_pipeline
+    self.save_final_results(pretrain_results, finetune_results, evaluation_results)
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\main.py", line 411, in save_final_results
+    shutil.copy2(self.config_path, config_copy_path)
+                 ^^^^^^^^^^^^^^^^
+AttributeError: 'FineTuningPipeline' object has no attribute 'config_path'
+
+2026-01-16 16:48:33,819 - FineTuning - INFO - Log file created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\logs\training.log
+2026-01-16 16:48:33,820 - FineTuning - INFO - FineTuning Pipeline initialized
+2026-01-16 16:48:33,820 - FineTuning - INFO - Config loaded from: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\config\config.yaml
+2026-01-16 16:48:33,822 - FineTuning - INFO - Using device: cpu
+2026-01-16 16:48:33,825 - FineTuning - INFO - Random seed set to: 42
+2026-01-16 16:48:33,832 - FineTuning - INFO - Experiment directory created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_164833
+2026-01-16 16:48:33,839 - FineTuning - INFO - Model parameters: {'total': 50369, 'trainable': 50369, 'frozen': 0}
+2026-01-16 16:48:33,841 - FineTuning - INFO - Starting Full FineTuning Pipeline
+2026-01-16 16:48:33,843 - FineTuning - INFO - Experiment: fecu_to_fefe_finetune
+2026-01-16 16:48:33,843 - FineTuning - INFO - Description: FeCu source data pretraining + FeFe target data finetuning
+2026-01-16 16:48:33,843 - FineTuning - INFO - ==================================================
+2026-01-16 16:48:33,844 - FineTuning - INFO - STARTING PRETRAINING PHASE (Source Domain)
+2026-01-16 16:48:33,844 - FineTuning - INFO - ==================================================
+2026-01-16 16:48:44,431 - FineTuning - INFO - Pretraining phase completed
+2026-01-16 16:48:44,432 - FineTuning - INFO - ==================================================
+2026-01-16 16:48:44,432 - FineTuning - INFO - STARTING FINETUNING PHASE (Target Domain)
+2026-01-16 16:48:44,432 - FineTuning - INFO - ==================================================
+2026-01-16 16:48:44,445 - FineTuning - INFO - Finetuning parameters: {'total': 50369, 'trainable': 50369, 'frozen': 0}
+2026-01-16 16:48:45,965 - FineTuning - INFO - Finetuning phase completed
+2026-01-16 16:48:45,966 - FineTuning - INFO - ==================================================
+2026-01-16 16:48:45,966 - FineTuning - INFO - STARTING EVALUATION PHASE
+2026-01-16 16:48:45,966 - FineTuning - INFO - ==================================================
+2026-01-16 16:48:45,972 - FineTuning - INFO - Source domain evaluation: {'MSE': 685.5706787109375, 'RMSE': 26.183404643226545, 'MAE': 20.525413513183594, 'R2': 0.8752648830413818, 'Mean_Residual': 1.4093461, 'Std_Residual': 26.145449, 'Max_Error': 81.48565, 'MAPE': 38.45551311969757, 'Explained_Variance': 0.8756262958049774}
+2026-01-16 16:48:46,837 - FineTuning - INFO - Target domain evaluation: {'MSE': 685.5706787109375, 'RMSE': 26.183404643226545, 'MAE': 20.525413513183594, 'R2': 0.8752648830413818, 'Mean_Residual': 1.4093461, 'Std_Residual': 26.145449, 'Max_Error': 81.48565, 'MAPE': 38.45551311969757, 'Explained_Variance': 0.8756262958049774}
+2026-01-16 16:48:50,929 - FineTuning - INFO - Evaluation phase completed
+2026-01-16 16:48:50,940 - FineTuning - INFO - Final results saved to: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_164833\results\final_results.json
+2026-01-16 16:48:50,941 - FineTuning - INFO - Results summary saved to: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_164833\results\results_summary.csv
+2026-01-16 16:48:50,944 - FineTuning - INFO - Config file copied to: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_164833\config.yaml
+2026-01-16 16:48:50,944 - FineTuning - INFO - ==================================================
+2026-01-16 16:48:50,944 - FineTuning - INFO - PIPELINE COMPLETED SUCCESSFULLY!
+2026-01-16 16:48:50,944 - FineTuning - INFO - ==================================================
+2026-01-16 16:48:50,946 - FineTuning - INFO - Final Source Domain RMSE: 26.1834
+2026-01-16 16:48:50,946 - FineTuning - INFO - Final Target Domain RMSE: 26.1834
+2026-01-16 16:48:50,946 - FineTuning - INFO - Results saved in: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_164833
+2026-01-16 16:50:07,723 - FineTuning - INFO - Log file created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\logs\training.log
+2026-01-16 16:50:07,724 - FineTuning - INFO - FineTuning Pipeline initialized
+2026-01-16 16:50:07,724 - FineTuning - INFO - Config loaded from: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\config\config.yaml
+2026-01-16 16:50:07,725 - FineTuning - INFO - Using device: cpu
+2026-01-16 16:50:07,727 - FineTuning - INFO - Random seed set to: 42
+2026-01-16 16:50:07,731 - FineTuning - INFO - Experiment directory created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_165007
+2026-01-16 16:50:07,734 - FineTuning - INFO - Model parameters: {'total': 50369, 'trainable': 50369, 'frozen': 0}
+2026-01-16 16:50:07,735 - FineTuning - INFO - Starting Full FineTuning Pipeline
+2026-01-16 16:50:07,735 - FineTuning - INFO - Experiment: fecu_to_fefe_finetune
+2026-01-16 16:50:07,736 - FineTuning - INFO - Description: FeCu source data pretraining + FeFe target data finetuning
+2026-01-16 16:50:07,736 - FineTuning - INFO - ==================================================
+2026-01-16 16:50:07,736 - FineTuning - INFO - STARTING PRETRAINING PHASE (Source Domain)
+2026-01-16 16:50:07,737 - FineTuning - INFO - ==================================================
+2026-01-16 16:50:18,709 - FineTuning - INFO - Pretraining phase completed
+2026-01-16 16:50:18,709 - FineTuning - INFO - ==================================================
+2026-01-16 16:50:18,709 - FineTuning - INFO - STARTING FINETUNING PHASE (Target Domain)
+2026-01-16 16:50:18,709 - FineTuning - INFO - ==================================================
+2026-01-16 16:50:18,728 - FineTuning - INFO - Finetuning parameters: {'total': 50369, 'trainable': 50369, 'frozen': 0}
+2026-01-16 16:50:27,315 - FineTuning - INFO - Finetuning phase completed
+2026-01-16 16:50:27,315 - FineTuning - INFO - ==================================================
+2026-01-16 16:50:27,315 - FineTuning - INFO - STARTING EVALUATION PHASE
+2026-01-16 16:50:27,315 - FineTuning - INFO - ==================================================
+2026-01-16 16:50:27,325 - FineTuning - INFO - Source domain evaluation: {'MSE': 336.4858703613281, 'RMSE': 18.343551192757854, 'MAE': 14.063569068908691, 'R2': 0.9339030385017395, 'Mean_Residual': -0.25078955, 'Std_Residual': 18.341837, 'Max_Error': 60.04548, 'MAPE': 30.39436638355255, 'Explained_Variance': 0.9339154064655304}
+2026-01-16 16:50:28,406 - FineTuning - INFO - Target domain evaluation: {'MSE': 336.4858703613281, 'RMSE': 18.343551192757854, 'MAE': 14.063569068908691, 'R2': 0.9339030385017395, 'Mean_Residual': -0.25078955, 'Std_Residual': 18.341837, 'Max_Error': 60.04548, 'MAPE': 30.39436638355255, 'Explained_Variance': 0.9339154064655304}
+2026-01-16 16:50:31,591 - FineTuning - INFO - Evaluation phase completed
+2026-01-16 16:50:31,604 - FineTuning - INFO - Final results saved to: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_165007\results\final_results.json
+2026-01-16 16:50:31,605 - FineTuning - INFO - Results summary saved to: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_165007\results\results_summary.csv
+2026-01-16 16:50:31,609 - FineTuning - INFO - Config file copied to: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_165007\config.yaml
+2026-01-16 16:50:31,610 - FineTuning - INFO - ==================================================
+2026-01-16 16:50:31,610 - FineTuning - INFO - PIPELINE COMPLETED SUCCESSFULLY!
+2026-01-16 16:50:31,613 - FineTuning - INFO - ==================================================
+2026-01-16 16:50:31,613 - FineTuning - INFO - Final Source Domain RMSE: 18.3436
+2026-01-16 16:50:31,613 - FineTuning - INFO - Final Target Domain RMSE: 18.3436
+2026-01-16 16:50:31,613 - FineTuning - INFO - Results saved in: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_165007
+2026-01-16 16:58:57,153 - FineTuning - INFO - Log file created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\logs\training.log
+2026-01-16 16:58:57,153 - FineTuning - INFO - FineTuning Pipeline initialized
+2026-01-16 16:58:57,153 - FineTuning - INFO - Config loaded from: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\config\config.yaml
+2026-01-16 16:58:57,153 - FineTuning - INFO - Using device: cpu
+2026-01-16 16:58:57,359 - FineTuning - INFO - Random seed set to: 42
+2026-01-16 16:58:57,369 - FineTuning - INFO - Experiment directory created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_165857
+2026-01-16 16:58:57,378 - FineTuning - INFO - Model parameters: {'total': 50369, 'trainable': 50369, 'frozen': 0}
+2026-01-16 16:58:57,379 - FineTuning - INFO - Starting Full FineTuning Pipeline
+2026-01-16 16:58:57,379 - FineTuning - INFO - Experiment: fecu_to_fefe_finetune
+2026-01-16 16:58:57,379 - FineTuning - INFO - Description: FeCu source data pretraining + FeFe target data finetuning
+2026-01-16 16:58:57,379 - FineTuning - INFO - ==================================================
+2026-01-16 16:58:57,379 - FineTuning - INFO - STARTING PRETRAINING PHASE (Source Domain)
+2026-01-16 16:58:57,385 - FineTuning - INFO - ==================================================
+2026-01-16 16:59:09,561 - FineTuning - INFO - Pretraining phase completed
+2026-01-16 16:59:09,561 - FineTuning - INFO - ==================================================
+2026-01-16 16:59:09,561 - FineTuning - INFO - STARTING FINETUNING PHASE (Target Domain)
+2026-01-16 16:59:09,561 - FineTuning - INFO - ==================================================
+2026-01-16 16:59:09,631 - FineTuning - ERROR - Pipeline failed: can't convert np.ndarray of type numpy.object_. The only supported types are: float64, float32, float16, complex64, complex128, int64, int32, int16, int8, uint64, uint32, uint16, uint8, and bool.
+2026-01-16 16:59:09,644 - FineTuning - ERROR - Traceback (most recent call last):
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\main.py", line 433, in run_full_pipeline
+    finetune_results = self.run_finetuning()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\main.py", line 228, in run_finetuning
+    target_dataloaders = self.data_manager.prepare_target_data(pattern_name)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\utils\data_loader.py", line 333, in prepare_target_data
+    dataloaders = self.create_dataloaders(X_train, y_train, X_val, y_val, batch_size)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\utils\data_loader.py", line 507, in create_dataloaders
+    train_dataset = RegressionDataset(X_train, y_train)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\utils\data_loader.py", line 31, in __init__
+    self.y = torch.FloatTensor(y.reshape(-1, 1))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: can't convert np.ndarray of type numpy.object_. The only supported types are: float64, float32, float16, complex64, complex128, int64, int32, int16, int8, uint64, uint32, uint16, uint8, and bool.
+
+2026-01-16 17:02:02,358 - FineTuning - INFO - Log file created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\logs\training.log
+2026-01-16 17:02:02,359 - FineTuning - INFO - FineTuning Pipeline initialized
+2026-01-16 17:02:02,359 - FineTuning - INFO - Config loaded from: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\config\config.yaml
+2026-01-16 17:02:02,359 - FineTuning - INFO - Using device: cpu
+2026-01-16 17:02:02,731 - FineTuning - INFO - Random seed set to: 42
+2026-01-16 17:02:02,741 - FineTuning - INFO - Experiment directory created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_170202
+2026-01-16 17:02:02,747 - FineTuning - INFO - Model parameters: {'total': 50369, 'trainable': 50369, 'frozen': 0}
+2026-01-16 17:02:02,750 - FineTuning - INFO - Starting Full FineTuning Pipeline
+2026-01-16 17:02:02,750 - FineTuning - INFO - Experiment: fecu_to_fefe_finetune
+2026-01-16 17:02:02,750 - FineTuning - INFO - Description: FeCu source data pretraining + FeFe target data finetuning
+2026-01-16 17:02:02,750 - FineTuning - INFO - ==================================================
+2026-01-16 17:02:02,750 - FineTuning - INFO - STARTING PRETRAINING PHASE (Source Domain)
+2026-01-16 17:02:02,750 - FineTuning - INFO - ==================================================
+2026-01-16 17:02:17,086 - FineTuning - INFO - Pretraining phase completed
+2026-01-16 17:02:17,088 - FineTuning - INFO - ==================================================
+2026-01-16 17:02:17,088 - FineTuning - INFO - STARTING FINETUNING PHASE (Target Domain)
+2026-01-16 17:02:17,088 - FineTuning - INFO - ==================================================
+2026-01-16 17:02:17,147 - FineTuning - INFO - Finetuning parameters: {'total': 50369, 'trainable': 50369, 'frozen': 0}
+2026-01-16 17:02:21,844 - FineTuning - INFO - Finetuning phase completed
+2026-01-16 17:02:21,845 - FineTuning - INFO - ==================================================
+2026-01-16 17:02:21,845 - FineTuning - INFO - STARTING EVALUATION PHASE
+2026-01-16 17:02:21,845 - FineTuning - INFO - ==================================================
+2026-01-16 17:02:21,851 - FineTuning - INFO - Source domain evaluation: {'MSE': 3886.140869140625, 'RMSE': 62.33891937738915, 'MAE': 47.68697738647461, 'R2': 0.38434898853302, 'Mean_Residual': -45.559566, 'Std_Residual': 42.54959, 'Max_Error': 170.7838, 'MAPE': 149.13209676742554, 'Explained_Variance': 0.7131817042827606}
+2026-01-16 17:02:23,483 - FineTuning - INFO - Target domain evaluation: {'MSE': 1491.745361328125, 'RMSE': 38.62311951834192, 'MAE': 28.862409591674805, 'R2': 0.60589998960495, 'Mean_Residual': -5.8125095, 'Std_Residual': 38.183243, 'Max_Error': 162.96896, 'MAPE': 21.52799218893051, 'Explained_Variance': 0.6148256361484528}
+2026-01-16 17:02:24,565 - FineTuning - ERROR - Pipeline failed: ufunc 'divide' not supported for the input types, and the inputs could not be safely coerced to any supported types according to the casting rule ''safe''
+2026-01-16 17:02:24,755 - FineTuning - ERROR - Traceback (most recent call last):
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\main.py", line 436, in run_full_pipeline
+    evaluation_results = self.evaluate_models()
+                         ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\main.py", line 341, in evaluate_models
+    self.evaluator.plot_domain_analysis(
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\utils\evaluator.py", line 381, in plot_domain_analysis
+    target_mean_y = np.mean(target_y)
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\4093050\AppData\Local\Programs\Python\Python312\Lib\site-packages\numpy\core\fromnumeric.py", line 3504, in mean
+    return _methods._mean(a, axis=axis, dtype=dtype,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\4093050\AppData\Local\Programs\Python\Python312\Lib\site-packages\numpy\core\_methods.py", line 131, in _mean
+    ret = ret / rcount
+          ~~~~^~~~~~~~
+TypeError: ufunc 'divide' not supported for the input types, and the inputs could not be safely coerced to any supported types according to the casting rule ''safe''
+
+2026-01-16 17:03:31,962 - FineTuning - INFO - Log file created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\logs\training.log
+2026-01-16 17:03:31,962 - FineTuning - INFO - FineTuning Pipeline initialized
+2026-01-16 17:03:31,962 - FineTuning - INFO - Config loaded from: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\config\config.yaml
+2026-01-16 17:03:31,962 - FineTuning - INFO - Using device: cpu
+2026-01-16 17:03:31,974 - FineTuning - INFO - Random seed set to: 42
+2026-01-16 17:03:31,977 - FineTuning - INFO - Experiment directory created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_170331
+2026-01-16 17:03:31,981 - FineTuning - INFO - Model parameters: {'total': 50369, 'trainable': 50369, 'frozen': 0}
+2026-01-16 17:03:31,982 - FineTuning - INFO - Starting Full FineTuning Pipeline
+2026-01-16 17:03:31,982 - FineTuning - INFO - Experiment: fecu_to_fefe_finetune
+2026-01-16 17:03:31,982 - FineTuning - INFO - Description: FeCu source data pretraining + FeFe target data finetuning
+2026-01-16 17:03:31,982 - FineTuning - INFO - ==================================================
+2026-01-16 17:03:31,982 - FineTuning - INFO - STARTING PRETRAINING PHASE (Source Domain)
+2026-01-16 17:03:31,982 - FineTuning - INFO - ==================================================
+2026-01-16 17:03:48,678 - FineTuning - INFO - Pretraining phase completed
+2026-01-16 17:03:48,678 - FineTuning - INFO - ==================================================
+2026-01-16 17:03:48,679 - FineTuning - INFO - STARTING FINETUNING PHASE (Target Domain)
+2026-01-16 17:03:48,679 - FineTuning - INFO - ==================================================
+2026-01-16 17:03:48,686 - FineTuning - INFO - Finetuning parameters: {'total': 50369, 'trainable': 50369, 'frozen': 0}
+2026-01-16 17:03:55,968 - FineTuning - INFO - Finetuning phase completed
+2026-01-16 17:03:55,971 - FineTuning - INFO - ==================================================
+2026-01-16 17:03:55,976 - FineTuning - INFO - STARTING EVALUATION PHASE
+2026-01-16 17:03:55,977 - FineTuning - INFO - ==================================================
+2026-01-16 17:03:55,996 - FineTuning - INFO - Source domain evaluation: {'MSE': 3886.140869140625, 'RMSE': 62.33891937738915, 'MAE': 47.68697738647461, 'R2': 0.38434898853302, 'Mean_Residual': -45.559566, 'Std_Residual': 42.54959, 'Max_Error': 170.7838, 'MAPE': 149.13209676742554, 'Explained_Variance': 0.7131817042827606}
+2026-01-16 17:03:58,044 - FineTuning - INFO - Target domain evaluation: {'MSE': 1491.745361328125, 'RMSE': 38.62311951834192, 'MAE': 28.862409591674805, 'R2': 0.60589998960495, 'Mean_Residual': -5.8125095, 'Std_Residual': 38.183243, 'Max_Error': 162.96896, 'MAPE': 21.52799218893051, 'Explained_Variance': 0.6148256361484528}
+2026-01-16 17:04:03,973 - FineTuning - INFO - Evaluation phase completed
+2026-01-16 17:04:03,992 - FineTuning - INFO - Final results saved to: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_170331\results\final_results.json
+2026-01-16 17:04:03,993 - FineTuning - INFO - Results summary saved to: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_170331\results\results_summary.csv
+2026-01-16 17:04:03,999 - FineTuning - INFO - Config file copied to: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_170331\config.yaml
+2026-01-16 17:04:04,000 - FineTuning - INFO - ==================================================
+2026-01-16 17:04:04,000 - FineTuning - INFO - PIPELINE COMPLETED SUCCESSFULLY!
+2026-01-16 17:04:04,001 - FineTuning - INFO - ==================================================
+2026-01-16 17:04:04,001 - FineTuning - INFO - Final Source Domain RMSE: 62.3389
+2026-01-16 17:04:04,002 - FineTuning - INFO - Final Target Domain RMSE: 38.6231
+2026-01-16 17:04:04,002 - FineTuning - INFO - Results saved in: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_170331
+2026-01-16 17:20:56,323 - FineTuning - INFO - Log file created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\logs\training.log
+2026-01-16 17:20:56,324 - FineTuning - INFO - FineTuning Pipeline initialized
+2026-01-16 17:20:56,324 - FineTuning - INFO - Config loaded from: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\config\config.yaml
+2026-01-16 17:20:56,324 - FineTuning - INFO - Using device: cpu
+2026-01-16 17:20:56,536 - FineTuning - INFO - Random seed set to: 42
+2026-01-16 17:20:56,536 - FineTuning - INFO - Experiment directory created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_172056
+2026-01-16 17:20:56,553 - FineTuning - INFO - Model parameters: {'total': 50369, 'trainable': 50369, 'frozen': 0}
+2026-01-16 17:20:56,561 - FineTuning - INFO - Starting Full FineTuning Pipeline
+2026-01-16 17:20:56,561 - FineTuning - INFO - Experiment: fecu_to_fefe_finetune
+2026-01-16 17:20:56,561 - FineTuning - INFO - Description: FeCu source data pretraining + FeFe target data finetuning
+2026-01-16 17:20:56,561 - FineTuning - INFO - ==================================================
+2026-01-16 17:20:56,561 - FineTuning - INFO - STARTING PRETRAINING PHASE (Source Domain)
+2026-01-16 17:20:56,561 - FineTuning - INFO - ==================================================
+2026-01-16 17:21:11,814 - FineTuning - INFO - Pretraining phase completed
+2026-01-16 17:21:11,814 - FineTuning - INFO - ==================================================
+2026-01-16 17:21:11,814 - FineTuning - INFO - STARTING FINETUNING PHASE (Target Domain)
+2026-01-16 17:21:11,816 - FineTuning - INFO - ==================================================
+2026-01-16 17:21:11,884 - FineTuning - INFO - Finetuning parameters: {'total': 50369, 'trainable': 50369, 'frozen': 0}
+2026-01-16 17:21:17,962 - FineTuning - INFO - Finetuning phase completed
+2026-01-16 17:21:17,972 - FineTuning - INFO - ==================================================
+2026-01-16 17:21:17,972 - FineTuning - INFO - STARTING EVALUATION PHASE
+2026-01-16 17:21:17,972 - FineTuning - INFO - ==================================================
+2026-01-16 17:21:18,012 - FineTuning - INFO - Source domain evaluation: {'MSE': 3886.140869140625, 'RMSE': 62.33891937738915, 'MAE': 47.68697738647461, 'R2': 0.38434898853302, 'Mean_Residual': -45.559566, 'Std_Residual': 42.54959, 'Max_Error': 170.7838, 'MAPE': 149.13209676742554, 'Explained_Variance': 0.7131817042827606}
+2026-01-16 17:21:19,476 - FineTuning - INFO - Target domain evaluation: {'MSE': 1491.745361328125, 'RMSE': 38.62311951834192, 'MAE': 28.862409591674805, 'R2': 0.60589998960495, 'Mean_Residual': -5.8125095, 'Std_Residual': 38.183243, 'Max_Error': 162.96896, 'MAPE': 21.52799218893051, 'Explained_Variance': 0.6148256361484528}
+2026-01-16 17:21:23,381 - FineTuning - INFO - Evaluation phase completed
+2026-01-16 17:21:23,394 - FineTuning - INFO - Final results saved to: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_172056\results\final_results.json
+2026-01-16 17:21:23,396 - FineTuning - INFO - Results summary saved to: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_172056\results\results_summary.csv
+2026-01-16 17:21:23,401 - FineTuning - INFO - Config file copied to: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_172056\config.yaml
+2026-01-16 17:21:23,403 - FineTuning - INFO - ==================================================
+2026-01-16 17:21:23,403 - FineTuning - INFO - PIPELINE COMPLETED SUCCESSFULLY!
+2026-01-16 17:21:23,403 - FineTuning - INFO - ==================================================
+2026-01-16 17:21:23,403 - FineTuning - INFO - Final Source Domain RMSE: 62.3389
+2026-01-16 17:21:23,404 - FineTuning - INFO - Final Target Domain RMSE: 38.6231
+2026-01-16 17:21:23,404 - FineTuning - INFO - Results saved in: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_20260116_172056
+2026-01-16 17:26:26,417 - FineTuning - INFO - Log file created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\logs\training.log
+2026-01-16 17:26:26,423 - FineTuning - INFO - FineTuning Pipeline initialized
+2026-01-16 17:26:26,426 - FineTuning - INFO - Config loaded from: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\config\config.yaml
+2026-01-16 17:26:26,427 - FineTuning - INFO - Using device: cpu
+2026-01-16 17:26:26,434 - FineTuning - INFO - Random seed set to: 42
+2026-01-16 17:26:26,443 - FineTuning - INFO - Experiment directory created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_target128_20260116_172626
+2026-01-16 17:26:26,496 - FineTuning - INFO - Model parameters: {'total': 50369, 'trainable': 50369, 'frozen': 0}
+2026-01-16 17:26:26,504 - FineTuning - INFO - Starting Full FineTuning Pipeline
+2026-01-16 17:26:26,504 - FineTuning - INFO - Experiment: fecu_to_fefe_finetune
+2026-01-16 17:26:26,504 - FineTuning - INFO - Description: FeCu source data pretraining + FeFe target data finetuning
+2026-01-16 17:26:26,504 - FineTuning - INFO - ==================================================
+2026-01-16 17:26:26,510 - FineTuning - INFO - STARTING PRETRAINING PHASE (Source Domain)
+2026-01-16 17:26:26,511 - FineTuning - INFO - ==================================================
+2026-01-16 17:26:45,326 - FineTuning - INFO - Pretraining phase completed
+2026-01-16 17:26:45,326 - FineTuning - INFO - ==================================================
+2026-01-16 17:26:45,326 - FineTuning - INFO - STARTING FINETUNING PHASE (Target Domain)
+2026-01-16 17:26:45,326 - FineTuning - INFO - ==================================================
+2026-01-16 17:26:45,349 - FineTuning - INFO - Finetuning parameters: {'total': 50369, 'trainable': 50369, 'frozen': 0}
+2026-01-16 17:26:51,604 - FineTuning - INFO - Finetuning phase completed
+2026-01-16 17:26:51,604 - FineTuning - INFO - ==================================================
+2026-01-16 17:26:51,605 - FineTuning - INFO - STARTING EVALUATION PHASE
+2026-01-16 17:26:51,605 - FineTuning - INFO - ==================================================
+2026-01-16 17:26:51,614 - FineTuning - INFO - Source domain evaluation: {'MSE': 3886.140869140625, 'RMSE': 62.33891937738915, 'MAE': 47.68697738647461, 'R2': 0.38434898853302, 'Mean_Residual': -45.559566, 'Std_Residual': 42.54959, 'Max_Error': 170.7838, 'MAPE': 149.13209676742554, 'Explained_Variance': 0.7131817042827606}
+2026-01-16 17:26:53,865 - FineTuning - INFO - Target domain evaluation: {'MSE': 1491.745361328125, 'RMSE': 38.62311951834192, 'MAE': 28.862409591674805, 'R2': 0.60589998960495, 'Mean_Residual': -5.8125095, 'Std_Residual': 38.183243, 'Max_Error': 162.96896, 'MAPE': 21.52799218893051, 'Explained_Variance': 0.6148256361484528}
+2026-01-16 17:26:56,810 - FineTuning - INFO - Evaluation phase completed
+2026-01-16 17:26:56,835 - FineTuning - INFO - Final results saved to: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_target128_20260116_172626\results\final_results.json
+2026-01-16 17:26:56,835 - FineTuning - INFO - Results summary saved to: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_target128_20260116_172626\results\results_summary.csv
+2026-01-16 17:26:56,842 - FineTuning - INFO - Config file copied to: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_target128_20260116_172626\config.yaml
+2026-01-16 17:26:56,842 - FineTuning - INFO - ==================================================
+2026-01-16 17:26:56,842 - FineTuning - INFO - PIPELINE COMPLETED SUCCESSFULLY!
+2026-01-16 17:26:56,842 - FineTuning - INFO - ==================================================
+2026-01-16 17:26:56,843 - FineTuning - INFO - Final Source Domain RMSE: 62.3389
+2026-01-16 17:26:56,843 - FineTuning - INFO - Final Target Domain RMSE: 38.6231
+2026-01-16 17:26:56,843 - FineTuning - INFO - Results saved in: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_target128_20260116_172626
+2026-01-16 17:28:28,805 - FineTuning - INFO - Log file created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\logs\training.log
+2026-01-16 17:28:28,808 - FineTuning - INFO - FineTuning Pipeline initialized
+2026-01-16 17:28:28,809 - FineTuning - INFO - Config loaded from: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\config\config.yaml
+2026-01-16 17:28:28,810 - FineTuning - INFO - Using device: cpu
+2026-01-16 17:28:28,815 - FineTuning - INFO - Random seed set to: 42
+2026-01-16 17:28:28,818 - FineTuning - INFO - Experiment directory created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_target64_20260116_172828
+2026-01-16 17:28:28,821 - FineTuning - INFO - Model parameters: {'total': 50369, 'trainable': 50369, 'frozen': 0}
+2026-01-16 17:28:28,824 - FineTuning - INFO - Starting Full FineTuning Pipeline
+2026-01-16 17:28:28,824 - FineTuning - INFO - Experiment: fecu_to_fefe_finetune
+2026-01-16 17:28:28,824 - FineTuning - INFO - Description: FeCu source data pretraining + FeFe target data finetuning
+2026-01-16 17:28:28,824 - FineTuning - INFO - ==================================================
+2026-01-16 17:28:28,824 - FineTuning - INFO - STARTING PRETRAINING PHASE (Source Domain)
+2026-01-16 17:28:28,825 - FineTuning - INFO - ==================================================
+2026-01-16 17:28:47,131 - FineTuning - INFO - Pretraining phase completed
+2026-01-16 17:28:47,132 - FineTuning - INFO - ==================================================
+2026-01-16 17:28:47,132 - FineTuning - INFO - STARTING FINETUNING PHASE (Target Domain)
+2026-01-16 17:28:47,133 - FineTuning - INFO - ==================================================
+2026-01-16 17:28:47,169 - FineTuning - ERROR - Pipeline failed: could not convert string to float: '#NAME?'
+2026-01-16 17:28:47,233 - FineTuning - ERROR - Traceback (most recent call last):
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\main.py", line 434, in run_full_pipeline
+    finetune_results = self.run_finetuning()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\main.py", line 229, in run_finetuning
+    target_dataloaders = self.data_manager.prepare_target_data(pattern_name)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\utils\data_loader.py", line 337, in prepare_target_data
+    dataloaders = self.create_dataloaders(X_train, y_train, X_val, y_val, batch_size)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\utils\data_loader.py", line 518, in create_dataloaders
+    val_dataset = RegressionDataset(X_val, y_val)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\utils\data_loader.py", line 32, in __init__
+    y = y.astype(np.float32)
+        ^^^^^^^^^^^^^^^^^^^^
+ValueError: could not convert string to float: '#NAME?'
+
+2026-01-16 17:29:59,539 - FineTuning - INFO - Log file created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\logs\training.log
+2026-01-16 17:29:59,540 - FineTuning - INFO - FineTuning Pipeline initialized
+2026-01-16 17:29:59,540 - FineTuning - INFO - Config loaded from: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\config\config.yaml
+2026-01-16 17:29:59,542 - FineTuning - INFO - Using device: cpu
+2026-01-16 17:29:59,728 - FineTuning - INFO - Random seed set to: 42
+2026-01-16 17:29:59,735 - FineTuning - INFO - Experiment directory created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_target64_20260116_172959
+2026-01-16 17:29:59,739 - FineTuning - INFO - Model parameters: {'total': 50369, 'trainable': 50369, 'frozen': 0}
+2026-01-16 17:29:59,741 - FineTuning - INFO - Starting Full FineTuning Pipeline
+2026-01-16 17:29:59,741 - FineTuning - INFO - Experiment: fecu_to_fefe_finetune
+2026-01-16 17:29:59,741 - FineTuning - INFO - Description: FeCu source data pretraining + FeFe target data finetuning
+2026-01-16 17:29:59,742 - FineTuning - INFO - ==================================================
+2026-01-16 17:29:59,742 - FineTuning - INFO - STARTING PRETRAINING PHASE (Source Domain)
+2026-01-16 17:29:59,742 - FineTuning - INFO - ==================================================
+2026-01-16 17:30:17,664 - FineTuning - INFO - Pretraining phase completed
+2026-01-16 17:30:17,664 - FineTuning - INFO - ==================================================
+2026-01-16 17:30:17,664 - FineTuning - INFO - STARTING FINETUNING PHASE (Target Domain)
+2026-01-16 17:30:17,664 - FineTuning - INFO - ==================================================
+2026-01-16 17:30:17,713 - FineTuning - INFO - Finetuning parameters: {'total': 50369, 'trainable': 50369, 'frozen': 0}
+2026-01-16 17:30:23,655 - FineTuning - INFO - Finetuning phase completed
+2026-01-16 17:30:23,657 - FineTuning - INFO - ==================================================
+2026-01-16 17:30:23,657 - FineTuning - INFO - STARTING EVALUATION PHASE
+2026-01-16 17:30:23,658 - FineTuning - INFO - ==================================================
+2026-01-16 17:30:23,683 - FineTuning - INFO - Source domain evaluation: {'MSE': 3804.024169921875, 'RMSE': 61.67677172097997, 'MAE': 49.02828598022461, 'R2': 0.3973580598831177, 'Mean_Residual': -46.89169, 'Std_Residual': 40.06487, 'Max_Error': 172.28995, 'MAPE': 144.3173885345459, 'Explained_Variance': 0.7457016706466675}
+2026-01-16 17:30:25,704 - FineTuning - INFO - Target domain evaluation: {'MSE': 1260.7733154296875, 'RMSE': 35.50736987485397, 'MAE': 27.314844131469727, 'R2': 0.6592093706130981, 'Mean_Residual': -0.91181725, 'Std_Residual': 35.49566, 'Max_Error': 93.66258, 'MAPE': 18.497134745121002, 'Explained_Variance': 0.6594340801239014}
+2026-01-16 17:30:26,903 - FineTuning - ERROR - Pipeline failed: could not convert string to float: '#NAME?'
+2026-01-16 17:30:26,958 - FineTuning - ERROR - Traceback (most recent call last):
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\main.py", line 437, in run_full_pipeline
+    evaluation_results = self.evaluate_models()
+                         ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\main.py", line 342, in evaluate_models
+    self.evaluator.plot_domain_analysis(
+  File "C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\utils\evaluator.py", line 325, in plot_domain_analysis
+    target_y = np.asarray(target_y, dtype=np.float64).flatten()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not convert string to float: '#NAME?'
+
+2026-01-16 17:31:50,027 - FineTuning - INFO - Log file created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\logs\training.log
+2026-01-16 17:31:50,028 - FineTuning - INFO - FineTuning Pipeline initialized
+2026-01-16 17:31:50,029 - FineTuning - INFO - Config loaded from: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\config\config.yaml
+2026-01-16 17:31:50,030 - FineTuning - INFO - Using device: cpu
+2026-01-16 17:31:50,041 - FineTuning - INFO - Random seed set to: 42
+2026-01-16 17:31:50,050 - FineTuning - INFO - Experiment directory created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_target64_20260116_173150
+2026-01-16 17:31:50,057 - FineTuning - INFO - Model parameters: {'total': 50369, 'trainable': 50369, 'frozen': 0}
+2026-01-16 17:31:50,061 - FineTuning - INFO - Starting Full FineTuning Pipeline
+2026-01-16 17:31:50,061 - FineTuning - INFO - Experiment: fecu_to_fefe_finetune
+2026-01-16 17:31:50,062 - FineTuning - INFO - Description: FeCu source data pretraining + FeFe target data finetuning
+2026-01-16 17:31:50,062 - FineTuning - INFO - ==================================================
+2026-01-16 17:31:50,063 - FineTuning - INFO - STARTING PRETRAINING PHASE (Source Domain)
+2026-01-16 17:31:50,064 - FineTuning - INFO - ==================================================
+2026-01-16 17:33:19,628 - FineTuning - INFO - Log file created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\logs\training.log
+2026-01-16 17:33:19,628 - FineTuning - INFO - FineTuning Pipeline initialized
+2026-01-16 17:33:19,629 - FineTuning - INFO - Config loaded from: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\config\config.yaml
+2026-01-16 17:33:19,630 - FineTuning - INFO - Using device: cpu
+2026-01-16 17:33:19,637 - FineTuning - INFO - Random seed set to: 42
+2026-01-16 17:33:19,644 - FineTuning - INFO - Experiment directory created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_target64_20260116_173319
+2026-01-16 17:33:19,649 - FineTuning - INFO - Model parameters: {'total': 50369, 'trainable': 50369, 'frozen': 0}
+2026-01-16 17:33:19,652 - FineTuning - INFO - Starting Full FineTuning Pipeline
+2026-01-16 17:33:19,653 - FineTuning - INFO - Experiment: fecu_to_fefe_finetune
+2026-01-16 17:33:19,653 - FineTuning - INFO - Description: FeCu source data pretraining + FeFe target data finetuning
+2026-01-16 17:33:19,654 - FineTuning - INFO - ==================================================
+2026-01-16 17:33:19,655 - FineTuning - INFO - STARTING PRETRAINING PHASE (Source Domain)
+2026-01-16 17:33:19,655 - FineTuning - INFO - ==================================================
+2026-01-16 17:33:33,535 - FineTuning - INFO - Pretraining phase completed
+2026-01-16 17:33:33,535 - FineTuning - INFO - ==================================================
+2026-01-16 17:33:33,535 - FineTuning - INFO - STARTING FINETUNING PHASE (Target Domain)
+2026-01-16 17:33:33,536 - FineTuning - INFO - ==================================================
+2026-01-16 17:33:33,544 - FineTuning - INFO - Finetuning parameters: {'total': 50369, 'trainable': 50369, 'frozen': 0}
+2026-01-16 17:33:37,236 - FineTuning - INFO - Finetuning phase completed
+2026-01-16 17:33:37,237 - FineTuning - INFO - ==================================================
+2026-01-16 17:33:37,237 - FineTuning - INFO - STARTING EVALUATION PHASE
+2026-01-16 17:33:37,237 - FineTuning - INFO - ==================================================
+2026-01-16 17:33:37,251 - FineTuning - INFO - Source domain evaluation: {'MSE': 3804.024169921875, 'RMSE': 61.67677172097997, 'MAE': 49.02828598022461, 'R2': 0.3973580598831177, 'Mean_Residual': -46.89169, 'Std_Residual': 40.06487, 'Max_Error': 172.28995, 'MAPE': 144.3173885345459, 'Explained_Variance': 0.7457016706466675}
+2026-01-16 17:33:38,850 - FineTuning - INFO - Target domain evaluation: {'MSE': 1260.7733154296875, 'RMSE': 35.50736987485397, 'MAE': 27.314844131469727, 'R2': 0.6592093706130981, 'Mean_Residual': -0.91181725, 'Std_Residual': 35.49566, 'Max_Error': 93.66258, 'MAPE': 18.497134745121002, 'Explained_Variance': 0.6594340801239014}
+2026-01-16 17:33:43,324 - FineTuning - INFO - Evaluation phase completed
+2026-01-16 17:33:43,361 - FineTuning - INFO - Final results saved to: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_target64_20260116_173319\results\final_results.json
+2026-01-16 17:33:43,361 - FineTuning - INFO - Results summary saved to: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_target64_20260116_173319\results\results_summary.csv
+2026-01-16 17:33:43,376 - FineTuning - INFO - Config file copied to: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_target64_20260116_173319\config.yaml
+2026-01-16 17:33:43,377 - FineTuning - INFO - ==================================================
+2026-01-16 17:33:43,378 - FineTuning - INFO - PIPELINE COMPLETED SUCCESSFULLY!
+2026-01-16 17:33:43,378 - FineTuning - INFO - ==================================================
+2026-01-16 17:33:43,378 - FineTuning - INFO - Final Source Domain RMSE: 61.6768
+2026-01-16 17:33:43,378 - FineTuning - INFO - Final Target Domain RMSE: 35.5074
+2026-01-16 17:33:43,378 - FineTuning - INFO - Results saved in: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_target64_20260116_173319
+2026-01-16 17:35:09,927 - FineTuning - INFO - Log file created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\logs\training.log
+2026-01-16 17:35:09,928 - FineTuning - INFO - FineTuning Pipeline initialized
+2026-01-16 17:35:09,928 - FineTuning - INFO - Config loaded from: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\config\config.yaml
+2026-01-16 17:35:09,929 - FineTuning - INFO - Using device: cpu
+2026-01-16 17:35:09,933 - FineTuning - INFO - Random seed set to: 42
+2026-01-16 17:35:09,941 - FineTuning - INFO - Experiment directory created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_target128_20260116_173509
+2026-01-16 17:35:09,947 - FineTuning - INFO - Model parameters: {'total': 50369, 'trainable': 50369, 'frozen': 0}
+2026-01-16 17:35:09,950 - FineTuning - INFO - Starting Full FineTuning Pipeline
+2026-01-16 17:35:09,950 - FineTuning - INFO - Experiment: fecu_to_fefe_finetune
+2026-01-16 17:35:09,951 - FineTuning - INFO - Description: FeCu source data pretraining + FeFe target data finetuning
+2026-01-16 17:35:09,951 - FineTuning - INFO - ==================================================
+2026-01-16 17:35:09,951 - FineTuning - INFO - STARTING PRETRAINING PHASE (Source Domain)
+2026-01-16 17:35:09,952 - FineTuning - INFO - ==================================================
+2026-01-16 17:35:26,575 - FineTuning - INFO - Pretraining phase completed
+2026-01-16 17:35:26,575 - FineTuning - INFO - ==================================================
+2026-01-16 17:35:26,575 - FineTuning - INFO - STARTING FINETUNING PHASE (Target Domain)
+2026-01-16 17:35:26,575 - FineTuning - INFO - ==================================================
+2026-01-16 17:35:26,590 - FineTuning - INFO - Finetuning parameters: {'total': 50369, 'trainable': 50369, 'frozen': 0}
+2026-01-16 17:35:33,128 - FineTuning - INFO - Finetuning phase completed
+2026-01-16 17:35:33,128 - FineTuning - INFO - ==================================================
+2026-01-16 17:35:33,128 - FineTuning - INFO - STARTING EVALUATION PHASE
+2026-01-16 17:35:33,128 - FineTuning - INFO - ==================================================
+2026-01-16 17:35:33,137 - FineTuning - INFO - Source domain evaluation: {'MSE': 3886.140869140625, 'RMSE': 62.33891937738915, 'MAE': 47.68697738647461, 'R2': 0.38434898853302, 'Mean_Residual': -45.559566, 'Std_Residual': 42.54959, 'Max_Error': 170.7838, 'MAPE': 149.13209676742554, 'Explained_Variance': 0.7131817042827606}
+2026-01-16 17:35:34,433 - FineTuning - INFO - Target domain evaluation: {'MSE': 1491.745361328125, 'RMSE': 38.62311951834192, 'MAE': 28.862409591674805, 'R2': 0.60589998960495, 'Mean_Residual': -5.8125095, 'Std_Residual': 38.183243, 'Max_Error': 162.96896, 'MAPE': 21.52799218893051, 'Explained_Variance': 0.6148256361484528}
+2026-01-16 17:35:38,136 - FineTuning - INFO - Evaluation phase completed
+2026-01-16 17:35:38,155 - FineTuning - INFO - Final results saved to: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_target128_20260116_173509\results\final_results.json
+2026-01-16 17:35:38,155 - FineTuning - INFO - Results summary saved to: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_target128_20260116_173509\results\results_summary.csv
+2026-01-16 17:35:38,160 - FineTuning - INFO - Config file copied to: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_target128_20260116_173509\config.yaml
+2026-01-16 17:35:38,161 - FineTuning - INFO - ==================================================
+2026-01-16 17:35:38,161 - FineTuning - INFO - PIPELINE COMPLETED SUCCESSFULLY!
+2026-01-16 17:35:38,161 - FineTuning - INFO - ==================================================
+2026-01-16 17:35:38,162 - FineTuning - INFO - Final Source Domain RMSE: 62.3389
+2026-01-16 17:35:38,162 - FineTuning - INFO - Final Target Domain RMSE: 38.6231
+2026-01-16 17:35:38,162 - FineTuning - INFO - Results saved in: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_target128_20260116_173509
+2026-01-16 17:36:43,451 - FineTuning - INFO - Log file created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\logs\training.log
+2026-01-16 17:36:43,453 - FineTuning - INFO - FineTuning Pipeline initialized
+2026-01-16 17:36:43,453 - FineTuning - INFO - Config loaded from: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\config\config.yaml
+2026-01-16 17:36:43,454 - FineTuning - INFO - Using device: cpu
+2026-01-16 17:36:43,625 - FineTuning - INFO - Random seed set to: 42
+2026-01-16 17:36:43,628 - FineTuning - INFO - Experiment directory created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_target256_20260116_173643
+2026-01-16 17:36:43,657 - FineTuning - INFO - Model parameters: {'total': 50369, 'trainable': 50369, 'frozen': 0}
+2026-01-16 17:36:43,663 - FineTuning - INFO - Starting Full FineTuning Pipeline
+2026-01-16 17:36:43,663 - FineTuning - INFO - Experiment: fecu_to_fefe_finetune
+2026-01-16 17:36:43,663 - FineTuning - INFO - Description: FeCu source data pretraining + FeFe target data finetuning
+2026-01-16 17:36:43,663 - FineTuning - INFO - ==================================================
+2026-01-16 17:36:43,664 - FineTuning - INFO - STARTING PRETRAINING PHASE (Source Domain)
+2026-01-16 17:36:43,664 - FineTuning - INFO - ==================================================
+2026-01-16 17:36:59,471 - FineTuning - INFO - Pretraining phase completed
+2026-01-16 17:36:59,472 - FineTuning - INFO - ==================================================
+2026-01-16 17:36:59,475 - FineTuning - INFO - STARTING FINETUNING PHASE (Target Domain)
+2026-01-16 17:36:59,475 - FineTuning - INFO - ==================================================
+2026-01-16 17:36:59,533 - FineTuning - INFO - Finetuning parameters: {'total': 50369, 'trainable': 50369, 'frozen': 0}
+2026-01-16 17:37:02,285 - FineTuning - INFO - Finetuning phase completed
+2026-01-16 17:37:02,285 - FineTuning - INFO - ==================================================
+2026-01-16 17:37:02,285 - FineTuning - INFO - STARTING EVALUATION PHASE
+2026-01-16 17:37:02,285 - FineTuning - INFO - ==================================================
+2026-01-16 17:37:02,293 - FineTuning - INFO - Source domain evaluation: {'MSE': 3546.806884765625, 'RMSE': 59.555074383008076, 'MAE': 44.75521469116211, 'R2': 0.4381070137023926, 'Mean_Residual': -41.920124, 'Std_Residual': 42.302605, 'Max_Error': 165.32434, 'MAPE': 141.56497716903687, 'Explained_Variance': 0.7165018320083618}
+2026-01-16 17:37:03,170 - FineTuning - INFO - Target domain evaluation: {'MSE': 1412.5845947265625, 'RMSE': 37.58436636058352, 'MAE': 29.20740509033203, 'R2': 0.7124218940734863, 'Mean_Residual': 2.3528855, 'Std_Residual': 37.510647, 'Max_Error': 109.66498, 'MAPE': 23.751726746559143, 'Explained_Variance': 0.7135488986968994}
+2026-01-16 17:37:07,384 - FineTuning - INFO - Evaluation phase completed
+2026-01-16 17:37:07,395 - FineTuning - INFO - Final results saved to: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_target256_20260116_173643\results\final_results.json
+2026-01-16 17:37:07,397 - FineTuning - INFO - Results summary saved to: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_target256_20260116_173643\results\results_summary.csv
+2026-01-16 17:37:07,401 - FineTuning - INFO - Config file copied to: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_target256_20260116_173643\config.yaml
+2026-01-16 17:37:07,402 - FineTuning - INFO - ==================================================
+2026-01-16 17:37:07,402 - FineTuning - INFO - PIPELINE COMPLETED SUCCESSFULLY!
+2026-01-16 17:37:07,403 - FineTuning - INFO - ==================================================
+2026-01-16 17:37:07,403 - FineTuning - INFO - Final Source Domain RMSE: 59.5551
+2026-01-16 17:37:07,403 - FineTuning - INFO - Final Target Domain RMSE: 37.5844
+2026-01-16 17:37:07,403 - FineTuning - INFO - Results saved in: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_target256_20260116_173643
+2026-01-16 20:35:35,552 - FineTuning - INFO - Log file created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\logs\training.log
+2026-01-16 20:35:35,552 - FineTuning - INFO - FineTuning Pipeline initialized
+2026-01-16 20:35:35,554 - FineTuning - INFO - Config loaded from: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\config\config.yaml
+2026-01-16 20:35:35,567 - FineTuning - INFO - Using device: cpu
+2026-01-16 20:35:35,744 - FineTuning - INFO - Random seed set to: 42
+2026-01-16 20:35:35,744 - FineTuning - INFO - Experiment directory created: C:\Users\4093050\Documents\2025年度_業務\20_ドメイン適応\FT\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_target256_20260116_203535
+2026-01-16 20:35:35,779 - FineTuning - INFO - Model parameters: {'total': 199041, 'trainable': 199041, 'frozen': 0}
+2026-01-16 20:35:35,785 - FineTuning - INFO - Starting Full FineTuning Pipeline
+2026-01-16 20:35:35,787 - FineTuning - INFO - Experiment: fecu_to_fefe_finetune
+2026-01-16 20:35:35,787 - FineTuning - INFO - Description: FeCu source data pretraining + FeFe target data finetuning
+2026-01-16 20:35:35,787 - FineTuning - INFO - ==================================================
+2026-01-16 20:35:35,787 - FineTuning - INFO - STARTING PRETRAINING PHASE (Source Domain)
+2026-01-16 20:35:35,787 - FineTuning - INFO - ==================================================

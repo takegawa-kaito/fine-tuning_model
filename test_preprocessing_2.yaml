@@ -1,0 +1,11 @@
+# テスト用設定ファイル2: 2ファイルの結合変換
+raw_filenames:
+  - "fecu_JF_L4mm_20250120_start_end_150_300_0_rev2_removebaddata.csv"
+  - "fecu_JF_L4mm_add_20250130_start_end_625_500_0_rev2_removebaddata.csv"
+preprocessed_filename: "test_output_2.csv"
+input_path: "C:\\Users\\4093050\\Documents\\2025年度_業務\\20_ドメイン適応\\FT\\input"
+columns:
+  - "Power"
+  - "Velocity"
+  - "Defocus"
+  - "fz"

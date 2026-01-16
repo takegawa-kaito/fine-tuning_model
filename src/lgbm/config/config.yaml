@@ -1,0 +1,65 @@
+# LightGBM機械学習パイプライン設定ファイル
+
+# データパス設定
+data_paths:
+  input_path: "C:\\Users\\4093050\\Documents\\2025年度_業務\\20_ドメイン適応\\FT\\input"
+  output_path: "C:\\Users\\4093050\\Documents\\2025年度_業務\\20_ドメイン適応\\FT\\src\\lgbm\\data"
+  model_path: "C:\\Users\\4093050\\Documents\\2025年度_業務\\20_ドメイン適応\\FT\\src\\lgbm\\models"
+
+# 前処理設定
+preprocessing:
+  # preprocessing.pyで使用する設定
+  raw_filenames:
+    - "fecu_JF_L4mm_20250120_start_end_150_300_0_rev2_removebaddata.csv"
+    - "fecu_JF_L4mm_add_20250130_start_end_625_500_0_rev2_removebaddata.csv"
+  preprocessed_filename: "target.csv"
+  columns: ["Power", "Velocity", "Defocus", "fz"]
+
+# データ抽出設定
+data_extraction:
+  # data_extractor.pyで使用する設定
+  input_filename: "target.csv"
+  random_seed: 42
+  learning_data_num: 256
+  validation_data_num: 100
+  extraction_patterns:
+    - name: "random"
+      pattern: 1
+    - name: "interpolation"
+      pattern: 2
+    - name: "extrapolation"
+      pattern: 3
+
+# 機械学習設定
+machine_learning:
+  features: ["Power", "Velocity"]  # 説明変数
+  target: "fz"  # 目的変数
+  
+  # 標準化設定
+  standardization:
+    apply: true
+    method: "StandardScaler"  # StandardScaler or MinMaxScaler
+  
+  # LightGBM パラメータ
+  lgbm_params:
+    objective: "regression"
+    metric: "rmse"
+    boosting_type: "gbdt"
+    num_leaves: 31
+    learning_rate: 0.05
+    feature_fraction: 0.9
+    bagging_fraction: 0.8
+    bagging_freq: 5
+    verbose: 0
+    random_state: 42
+  
+  # 学習設定
+  training:
+    num_boost_round: 1000
+    early_stopping_rounds: 50
+    verbose_eval: 100
+
+# 評価設定
+evaluation:
+  metrics: ["RMSE"]
+  save_predictions: true

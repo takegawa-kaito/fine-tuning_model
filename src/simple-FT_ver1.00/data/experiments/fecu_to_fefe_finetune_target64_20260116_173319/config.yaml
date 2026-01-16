@@ -1,0 +1,135 @@
+# ファインチューニングモデル設定ファイル (ver1.00)
+
+# データパス設定
+data_paths:
+  # 生データ（preprocessing用）
+  source_raw_data:
+    - "C:\\Users\\4093050\\Documents\\2025年度_業務\\20_ドメイン適応\\FT\\input\\raw\\fecu_JF_L4mm_20250120_start_end_150_300_0_rev2_removebaddata.csv"
+    - "C:\\Users\\4093050\\Documents\\2025年度_業務\\20_ドメイン適応\\FT\\input\\raw\\fecu_JF_L4mm_add_20250130_start_end_625_500_0_rev2_removebaddata.csv"
+  target_raw_data:
+    - "C:\\Users\\4093050\\Documents\\2025年度_業務\\20_ドメイン適応\\FT\\input\\raw\\fefe_JF_L4mm_20250401_start_end_3000_1500_0_rev1.csv"
+    - "C:\\Users\\4093050\\Documents\\2025年度_業務\\20_ドメイン適応\\FT\\input\\raw\\fefe_JF_L4mm_add_20250404_start_end_625_500_0_rev1.csv"
+  
+  # 前処理済みデータの保存先
+  preprocessed_path: "C:\\Users\\4093050\\Documents\\2025年度_業務\\20_ドメイン適応\\FT\\input\\preprocessed"
+  output_path: "C:\\Users\\4093050\\Documents\\2025年度_業務\\20_ドメイン適応\\FT\\src\\simple-FT_ver1.00\\data"
+  model_save_path: "C:\\Users\\4093050\\Documents\\2025年度_業務\\20_ドメイン適応\\FT\\src\\simple-FT_ver1.00\\models"
+
+# データ前処理設定（preprocessing.pyと連携）
+preprocessing:
+  source_raw_filenames:
+    - "fecu_JF_L4mm_20250120_start_end_150_300_0_rev2_removebaddata.csv"
+    - "fecu_JF_L4mm_add_20250130_start_end_625_500_0_rev2_removebaddata.csv"
+  target_raw_filenames:
+    - "fefe_JF_L4mm_20250401_start_end_3000_1500_0_rev1.csv"
+    - "fefe_JF_L4mm_add_20250404_start_end_625_500_0_rev1.csv"
+  source_preprocessed_filename: "source_target.csv"
+  target_preprocessed_filename: "target_target.csv"
+  columns: ["Power", "Velocity", "Defocus", "fz"]
+  input_path: "C:\\Users\\4093050\\Documents\\2025年度_業務\\20_ドメイン適応\\FT\\input\\raw"
+
+# データ抽出設定（data_extractor.pyと連携）
+data_extraction:
+  random_seed: 42
+  
+  # Sourceデータ設定（FeCu - 事前学習用）
+  source:
+    train_ratio: 0.8  # 全数の8割を学習用
+    validation_ratio: 0.2  # 全数の2割を検証用
+    extraction_pattern: "random"  # source用の抽出パターン
+  
+  # Targetデータ設定（FeFe - ファインチューニング用）
+  target:
+    learning_data_num: 64 # ファインチューニング学習データ数（64, 128, 256で実験）
+    validation_ratio: 0.2  # target全数の2割を検証用
+    validation_pattern: "interpolation"  # 検証データの抽出パターン（内挿、外挿など）
+  
+  # 抽出パターンの定義
+  extraction_patterns:
+    - name: "random"
+      pattern: 1
+    - name: "interpolation" 
+      pattern: 2
+    - name: "extrapolation"
+      pattern: 3
+
+# モデル用データ設定
+model_data:
+  features: ["Power", "Velocity"]  # 入力特徴量
+  target: "fz"  # 目的変数
+  standardization:
+    apply: true
+    method: "StandardScaler"  # StandardScaler or MinMaxScaler
+
+# モデルアーキテクチャ設定
+model:
+  name: "SimpleRegressor"
+  architecture:
+    input_dim: 2  # Power, Velocity
+    hidden_size: 64  # エンコーダー・リグレッサー構成の隠れ層次元
+    hidden_layers: [64, 32, 16]  # 互換性のため保持
+    output_dim: 1  # fz予測
+    activation: "GELU"  # エンコーダー・リグレッサー構成ではGELU使用
+    dropout_rate: 0.1
+    batch_norm: true
+
+# 事前学習設定（Sourceデータ）
+pretrain:
+  epochs: 200
+  batch_size: 32
+  learning_rate: 0.001
+  optimizer: "Adam"
+  loss_function: "MSELoss"
+  scheduler:
+    use: true
+    type: "StepLR"
+    step_size: 50
+    gamma: 0.5
+  early_stopping:
+    patience: 20
+    min_delta: 0.001
+  save_best_model: true
+
+# ファインチューニング設定（Targetデータ）
+finetune:
+  epochs: 100
+  batch_size: 16
+  learning_rate: 0.0001  # 事前学習より小さく
+  optimizer: "Adam"
+  loss_function: "MSELoss"
+  scheduler:
+    use: true
+    type: "StepLR"
+    step_size: 30
+    gamma: 0.7
+  early_stopping:
+    patience: 15
+    min_delta: 0.0005
+  freeze_layers:
+    enable: false  # 全層を学習対象とする
+    freeze_until_layer: 0  # 指定層まで凍結
+  save_best_model: true
+
+# 評価設定
+evaluation:
+  metrics: ["RMSE", "MAE", "R2"]
+  save_predictions: true
+  plot_results: true
+  plot_loss_curves: true
+  comparison_analysis: true  # Source vs Target性能比較
+
+# 実験設定
+experiment:
+  name: "fecu_to_fefe_finetune"
+  description: "FeCu source data pretraining + FeFe target data finetuning"
+  random_seed: 42
+  device: "auto"  # "cpu", "cuda", or "auto"
+  verbose: true
+  save_logs: true
+
+# ログ設定
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  save_to_file: true
+  log_file: "training.log"
