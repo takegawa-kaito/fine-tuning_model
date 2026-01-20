@@ -1,1 +1,57 @@
-*.csv
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+env/
+ENV/
+ft_env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Experiment Results (DO NOT COMMIT)
+src/*/data/experiments/
+src/*/data/logs/
+src/*/data/grid_search_results/
+*.pth
+**/models/*.pth
+**/results/*.json
+**/results/*.csv
+**/plots/*
+training_*.log
+
+# Data Files
+input/raw/*.csv
+input/preprocessed/*.csv
+
+# Jupyter Notebook
+.ipynb_checkpoints/

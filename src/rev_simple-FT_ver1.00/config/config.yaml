@@ -1,5 +1,5 @@
 # Fine-Tuning Model Configuration (ver1.00)
-# FeCu (Source) → FeFe (Target) Domain Adaptation
+# FeFe (Source) → FeCu (Target) Domain Adaptation [REVERSED]
 
 # ==================================================
 # データ設定
@@ -8,24 +8,24 @@
 # データパス
 data_paths:
   source_raw_data:
-    - "C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/input/raw/fecu_JF_L4mm_20250120_start_end_150_300_0_rev2_removebaddata.csv"
-    - "C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/input/raw/fecu_JF_L4mm_add_20250130_start_end_625_500_0_rev2_removebaddata.csv"
-  target_raw_data:
     - "C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/input/raw/fefe_JF_L4mm_20250401_start_end_3000_1500_0_rev1.csv"
     - "C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/input/raw/fefe_JF_L4mm_add_20250404_start_end_625_500_0_rev1.csv"
+  target_raw_data:
+    - "C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/input/raw/fecu_JF_L4mm_20250120_start_end_150_300_0_rev2_removebaddata.csv"
+    - "C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/input/raw/fecu_JF_L4mm_add_20250130_start_end_625_500_0_rev2_removebaddata.csv"
   preprocessed_path: "C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/input/preprocessed"
-  output_path: "C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data"
+  output_path: "C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/rev_simple-FT_ver1.00/data"
 
 # データ前処理
 preprocessing:
   source_raw_filenames:
-    - "fecu_JF_L4mm_20250120_start_end_150_300_0_rev2_removebaddata.csv"
-    - "fecu_JF_L4mm_add_20250130_start_end_625_500_0_rev2_removebaddata.csv"
-  target_raw_filenames:
     - "fefe_JF_L4mm_20250401_start_end_3000_1500_0_rev1.csv"
     - "fefe_JF_L4mm_add_20250404_start_end_625_500_0_rev1.csv"
-  source_preprocessed_filename: "source_target.csv"
-  target_preprocessed_filename: "target_target.csv"
+  target_raw_filenames:
+    - "fecu_JF_L4mm_20250120_start_end_150_300_0_rev2_removebaddata.csv"
+    - "fecu_JF_L4mm_add_20250130_start_end_625_500_0_rev2_removebaddata.csv"
+  source_preprocessed_filename: "target_target.csv"  # FeFe data (reversed: was target, now source)
+  target_preprocessed_filename: "source_target.csv"  # FeCu data (reversed: was source, now target)
   columns: ["Power", "Velocity", "Defocus", "fz"]
   input_path: "C:\\Users\\4093050\\Documents\\プロセスインフォマティクス\\FT\\fine-tuning_model\\input\\raw"
 

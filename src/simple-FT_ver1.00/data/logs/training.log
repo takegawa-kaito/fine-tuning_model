@@ -895,3 +895,266 @@ RuntimeError: Error(s) in loading state_dict for SimpleRegressor:
     raise ValueError(
 ValueError: Found array with 0 sample(s) (shape=(0, 2)) while a minimum of 1 is required by StandardScaler.
 
+2026-01-20 18:40:17,470 - FineTuning - INFO - Log file created: C:\Users\4093050\Documents\プロセスインフォマティクス\FT\fine-tuning_model\src\simple-FT_ver1.00\data\logs\training.log
+2026-01-20 18:40:17,472 - FineTuning - INFO - FineTuning Pipeline initialized
+2026-01-20 18:40:17,472 - FineTuning - INFO - Config loaded from: C:\Users\4093050\Documents\プロセスインフォマティクス\FT\fine-tuning_model\src\simple-FT_ver1.00\config\config.yaml
+2026-01-20 18:40:17,472 - FineTuning - INFO - Using device: cpu
+2026-01-20 18:40:17,500 - FineTuning - INFO - Random seed set to: 42
+2026-01-20 18:40:17,505 - FineTuning - INFO - Experiment directory created: C:\Users\4093050\Documents\プロセスインフォマティクス\FT\fine-tuning_model\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_target256_20260120_184017
+2026-01-20 18:40:17,532 - FineTuning - INFO - Model parameters: {'total': 791297, 'trainable': 791297, 'frozen': 0}
+2026-01-20 18:40:17,533 - FineTuning - INFO - Starting Full FineTuning Pipeline
+2026-01-20 18:40:17,533 - FineTuning - INFO - Experiment: fecu_to_fefe_finetune
+2026-01-20 18:40:17,533 - FineTuning - INFO - Description: FeCu source data pretraining + FeFe target data finetuning
+2026-01-20 18:40:17,533 - FineTuning - INFO - ==================================================
+2026-01-20 18:40:17,533 - FineTuning - INFO - STARTING PRETRAINING PHASE (Source Domain)
+2026-01-20 18:40:17,533 - FineTuning - INFO - ==================================================
+2026-01-20 18:40:38,841 - FineTuning - INFO - Pretraining phase completed
+2026-01-20 18:40:38,841 - FineTuning - INFO - ==================================================
+2026-01-20 18:40:38,841 - FineTuning - INFO - STARTING FINETUNING PHASE (Target Domain)
+2026-01-20 18:40:38,841 - FineTuning - INFO - ==================================================
+2026-01-20 18:40:38,863 - FineTuning - INFO - Finetuning parameters: {'total': 791297, 'trainable': 791297, 'frozen': 0}
+2026-01-20 18:40:49,226 - FineTuning - INFO - Finetuning phase completed
+2026-01-20 18:40:49,226 - FineTuning - INFO - ==================================================
+2026-01-20 18:40:49,226 - FineTuning - INFO - STARTING EVALUATION PHASE
+2026-01-20 18:40:49,226 - FineTuning - INFO - ==================================================
+2026-01-20 18:40:49,226 - FineTuning - INFO - Evaluating pretrained model on source domain...
+2026-01-20 18:40:49,247 - FineTuning - INFO - Pretrain-Source evaluation - RMSE: 24.5998, R2: 0.9041
+2026-01-20 18:40:51,490 - FineTuning - INFO - Evaluating finetuned model on both domains...
+2026-01-20 18:40:51,491 - FineTuning - INFO - Finetune-Source evaluation - RMSE: 59.0207, R2: 0.4481
+2026-01-20 18:40:53,560 - FineTuning - INFO - Finetune-Target evaluation - RMSE: 37.4872, R2: 0.7139
+2026-01-20 18:40:59,613 - FineTuning - INFO - Evaluation phase completed
+2026-01-20 18:40:59,613 - FineTuning - INFO - ==================================================
+2026-01-20 18:40:59,613 - FineTuning - INFO - EVALUATION SUMMARY
+2026-01-20 18:40:59,614 - FineTuning - INFO - ==================================================
+2026-01-20 18:40:59,614 - FineTuning - INFO - Pretrained model (Source): RMSE = 24.5998
+2026-01-20 18:40:59,614 - FineTuning - INFO - Finetuned model (Source): RMSE = 59.0207
+2026-01-20 18:40:59,614 - FineTuning - INFO - Finetuned model (Target): RMSE = 37.4872
+2026-01-20 18:40:59,649 - FineTuning - INFO - Final results saved to: C:\Users\4093050\Documents\プロセスインフォマティクス\FT\fine-tuning_model\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_target256_20260120_184017\results\final_results.json
+2026-01-20 18:40:59,649 - FineTuning - INFO - Results summary saved to: C:\Users\4093050\Documents\プロセスインフォマティクス\FT\fine-tuning_model\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_target256_20260120_184017\results\results_summary.csv
+2026-01-20 18:40:59,677 - FineTuning - INFO - Config file copied to: C:\Users\4093050\Documents\プロセスインフォマティクス\FT\fine-tuning_model\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_target256_20260120_184017\config.yaml
+2026-01-20 18:40:59,677 - FineTuning - INFO - ==================================================
+2026-01-20 18:40:59,678 - FineTuning - INFO - PIPELINE COMPLETED SUCCESSFULLY!
+2026-01-20 18:40:59,678 - FineTuning - INFO - ==================================================
+2026-01-20 18:40:59,678 - FineTuning - INFO - Pretrained Model (Source): RMSE = 24.5998
+2026-01-20 18:40:59,679 - FineTuning - INFO - Finetuned Model (Source): RMSE = 59.0207
+2026-01-20 18:40:59,679 - FineTuning - INFO - Finetuned Model (Target): RMSE = 37.4872
+2026-01-20 18:40:59,679 - FineTuning - INFO - Results saved in: C:\Users\4093050\Documents\プロセスインフォマティクス\FT\fine-tuning_model\src\simple-FT_ver1.00\data\experiments\fecu_to_fefe_finetune_target256_20260120_184017
+2026-01-20 19:16:16,754 - FineTuning - INFO - Log file created: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\logs\training.log
+2026-01-20 19:16:16,754 - FineTuning - INFO - FineTuning Pipeline initialized
+2026-01-20 19:16:16,755 - FineTuning - INFO - Config loaded from: C:\Users\4093050\Documents\プロセスインフォマティクス\FT\fine-tuning_model\src\simple-FT_ver1.00\config\config.yaml
+2026-01-20 19:16:16,877 - FineTuning - INFO - Using device: cuda
+2026-01-20 19:16:16,918 - FineTuning - INFO - Random seed set to: 42
+2026-01-20 19:16:16,925 - FineTuning - INFO - Experiment directory created: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\experiments\fecu_to_fefe_finetune_target256_20260120_191616
+2026-01-20 19:16:16,938 - FineTuning - INFO - Model parameters: {'total': 791297, 'trainable': 791297, 'frozen': 0}
+2026-01-20 19:16:17,017 - FineTuning - INFO - Starting Full FineTuning Pipeline
+2026-01-20 19:16:17,017 - FineTuning - INFO - Experiment: fecu_to_fefe_finetune
+2026-01-20 19:16:17,017 - FineTuning - INFO - Description: FeCu source data pretraining + FeFe target data finetuning
+2026-01-20 19:16:17,017 - FineTuning - INFO - ==================================================
+2026-01-20 19:16:17,017 - FineTuning - INFO - STARTING PRETRAINING PHASE (Source Domain)
+2026-01-20 19:16:17,017 - FineTuning - INFO - ==================================================
+2026-01-20 19:16:47,215 - FineTuning - INFO - Pretraining phase completed
+2026-01-20 19:16:47,215 - FineTuning - INFO - ==================================================
+2026-01-20 19:16:47,215 - FineTuning - INFO - STARTING FINETUNING PHASE (Target Domain)
+2026-01-20 19:16:47,215 - FineTuning - INFO - ==================================================
+2026-01-20 19:16:47,236 - FineTuning - INFO - Finetuning parameters: {'total': 791297, 'trainable': 791297, 'frozen': 0}
+2026-01-20 19:16:53,453 - FineTuning - INFO - Finetuning phase completed
+2026-01-20 19:16:53,453 - FineTuning - INFO - ==================================================
+2026-01-20 19:16:53,453 - FineTuning - INFO - STARTING EVALUATION PHASE
+2026-01-20 19:16:53,453 - FineTuning - INFO - ==================================================
+2026-01-20 19:16:53,454 - FineTuning - INFO - Evaluating pretrained model on source domain...
+2026-01-20 19:16:53,478 - FineTuning - INFO - Pretrain-Source evaluation - RMSE: 21.1788, R2: 0.9289
+2026-01-20 19:16:55,613 - FineTuning - INFO - Evaluating finetuned model on both domains...
+2026-01-20 19:16:55,650 - FineTuning - INFO - Finetune-Source evaluation - RMSE: 58.4248, R2: 0.4592
+2026-01-20 19:16:57,806 - FineTuning - INFO - Finetune-Target evaluation - RMSE: 36.1013, R2: 0.7347
+2026-01-20 19:17:03,678 - FineTuning - INFO - Evaluation phase completed
+2026-01-20 19:17:03,678 - FineTuning - INFO - ==================================================
+2026-01-20 19:17:03,679 - FineTuning - INFO - EVALUATION SUMMARY
+2026-01-20 19:17:03,679 - FineTuning - INFO - ==================================================
+2026-01-20 19:17:03,680 - FineTuning - INFO - Pretrained model (Source): RMSE = 21.1788
+2026-01-20 19:17:03,680 - FineTuning - INFO - Finetuned model (Source): RMSE = 58.4248
+2026-01-20 19:17:03,680 - FineTuning - INFO - Finetuned model (Target): RMSE = 36.1013
+2026-01-20 19:17:03,714 - FineTuning - INFO - Final results saved to: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\experiments\fecu_to_fefe_finetune_target256_20260120_191616\results\final_results.json
+2026-01-20 19:17:03,715 - FineTuning - INFO - Results summary saved to: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\experiments\fecu_to_fefe_finetune_target256_20260120_191616\results\results_summary.csv
+2026-01-20 19:17:03,734 - FineTuning - INFO - Config file copied to: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\experiments\fecu_to_fefe_finetune_target256_20260120_191616\config.yaml
+2026-01-20 19:17:03,735 - FineTuning - INFO - ==================================================
+2026-01-20 19:17:03,735 - FineTuning - INFO - PIPELINE COMPLETED SUCCESSFULLY!
+2026-01-20 19:17:03,735 - FineTuning - INFO - ==================================================
+2026-01-20 19:17:03,735 - FineTuning - INFO - Pretrained Model (Source): RMSE = 21.1788
+2026-01-20 19:17:03,735 - FineTuning - INFO - Finetuned Model (Source): RMSE = 58.4248
+2026-01-20 19:17:03,735 - FineTuning - INFO - Finetuned Model (Target): RMSE = 36.1013
+2026-01-20 19:17:03,736 - FineTuning - INFO - Results saved in: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\experiments\fecu_to_fefe_finetune_target256_20260120_191616
+2026-01-20 19:21:48,989 - FineTuning - INFO - Log file created: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\logs\training.log
+2026-01-20 19:21:48,989 - FineTuning - INFO - FineTuning Pipeline initialized
+2026-01-20 19:21:48,991 - FineTuning - INFO - Config loaded from: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\grid_search_results\grid_search_20260120_192148\config_exp_0.yaml
+2026-01-20 19:21:49,141 - FineTuning - INFO - Using device: cuda
+2026-01-20 19:21:49,163 - FineTuning - INFO - Random seed set to: 42
+2026-01-20 19:21:49,163 - FineTuning - INFO - Experiment directory created: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\experiments\gridsearch_cosine_T_max50_dropout_rate0.2_finetune_batch8_finetune_lr0.0005_hidden_size128_optimizerAdam_pretrain_batch16_pretrain_lr0.005_scheduler_typeCosineAnnealingLR_step_gamma0.5_target256_20260120_192149
+2026-01-20 19:21:49,177 - FineTuning - INFO - Model parameters: {'total': 199041, 'trainable': 199041, 'frozen': 0}
+2026-01-20 19:21:49,268 - FineTuning - INFO - Starting Full FineTuning Pipeline
+2026-01-20 19:21:49,268 - FineTuning - INFO - Experiment: gridsearch_cosine_T_max50_dropout_rate0.2_finetune_batch8_finetune_lr0.0005_hidden_size128_optimizerAdam_pretrain_batch16_pretrain_lr0.005_scheduler_typeCosineAnnealingLR_step_gamma0.5
+2026-01-20 19:21:49,268 - FineTuning - INFO - Description: Grid search experiment: cosine_T_max50_dropout_rate0.2_finetune_batch8_finetune_lr0.0005_hidden_size128_optimizerAdam_pretrain_batch16_pretrain_lr0.005_scheduler_typeCosineAnnealingLR_step_gamma0.5
+2026-01-20 19:21:49,268 - FineTuning - INFO - ==================================================
+2026-01-20 19:21:49,268 - FineTuning - INFO - STARTING PRETRAINING PHASE (Source Domain)
+2026-01-20 19:21:49,268 - FineTuning - INFO - ==================================================
+2026-01-20 19:22:03,558 - FineTuning - INFO - Pretraining phase completed
+2026-01-20 19:22:03,558 - FineTuning - INFO - ==================================================
+2026-01-20 19:22:03,558 - FineTuning - INFO - STARTING FINETUNING PHASE (Target Domain)
+2026-01-20 19:22:03,558 - FineTuning - INFO - ==================================================
+2026-01-20 19:22:03,561 - FineTuning - INFO - Finetuning parameters: {'total': 199041, 'trainable': 199041, 'frozen': 0}
+2026-01-20 19:22:11,338 - FineTuning - INFO - Finetuning phase completed
+2026-01-20 19:22:11,338 - FineTuning - INFO - ==================================================
+2026-01-20 19:22:11,338 - FineTuning - INFO - STARTING EVALUATION PHASE
+2026-01-20 19:22:11,339 - FineTuning - INFO - ==================================================
+2026-01-20 19:22:11,339 - FineTuning - INFO - Evaluating pretrained model on source domain...
+2026-01-20 19:22:11,341 - FineTuning - INFO - Pretrain-Source evaluation - RMSE: 21.0450, R2: 0.9298
+2026-01-20 19:22:13,491 - FineTuning - INFO - Evaluating finetuned model on both domains...
+2026-01-20 19:22:13,518 - FineTuning - INFO - Finetune-Source evaluation - RMSE: 58.1216, R2: 0.4648
+2026-01-20 19:22:15,578 - FineTuning - INFO - Finetune-Target evaluation - RMSE: 33.5474, R2: 0.7709
+2026-01-20 19:22:21,337 - FineTuning - INFO - Evaluation phase completed
+2026-01-20 19:22:21,337 - FineTuning - INFO - ==================================================
+2026-01-20 19:22:21,337 - FineTuning - INFO - EVALUATION SUMMARY
+2026-01-20 19:22:21,337 - FineTuning - INFO - ==================================================
+2026-01-20 19:22:21,337 - FineTuning - INFO - Pretrained model (Source): RMSE = 21.0450
+2026-01-20 19:22:21,337 - FineTuning - INFO - Finetuned model (Source): RMSE = 58.1216
+2026-01-20 19:22:21,337 - FineTuning - INFO - Finetuned model (Target): RMSE = 33.5474
+2026-01-20 19:22:21,375 - FineTuning - INFO - Final results saved to: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\experiments\gridsearch_cosine_T_max50_dropout_rate0.2_finetune_batch8_finetune_lr0.0005_hidden_size128_optimizerAdam_pretrain_batch16_pretrain_lr0.005_scheduler_typeCosineAnnealingLR_step_gamma0.5_target256_20260120_192149\results\final_results.json
+2026-01-20 19:22:21,375 - FineTuning - INFO - Results summary saved to: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\experiments\gridsearch_cosine_T_max50_dropout_rate0.2_finetune_batch8_finetune_lr0.0005_hidden_size128_optimizerAdam_pretrain_batch16_pretrain_lr0.005_scheduler_typeCosineAnnealingLR_step_gamma0.5_target256_20260120_192149\results\results_summary.csv
+2026-01-20 19:22:21,392 - FineTuning - INFO - Config file copied to: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\experiments\gridsearch_cosine_T_max50_dropout_rate0.2_finetune_batch8_finetune_lr0.0005_hidden_size128_optimizerAdam_pretrain_batch16_pretrain_lr0.005_scheduler_typeCosineAnnealingLR_step_gamma0.5_target256_20260120_192149\config.yaml
+2026-01-20 19:22:21,393 - FineTuning - INFO - ==================================================
+2026-01-20 19:22:21,393 - FineTuning - INFO - PIPELINE COMPLETED SUCCESSFULLY!
+2026-01-20 19:22:21,393 - FineTuning - INFO - ==================================================
+2026-01-20 19:22:21,394 - FineTuning - INFO - Pretrained Model (Source): RMSE = 21.0450
+2026-01-20 19:22:21,394 - FineTuning - INFO - Finetuned Model (Source): RMSE = 58.1216
+2026-01-20 19:22:21,394 - FineTuning - INFO - Finetuned Model (Target): RMSE = 33.5474
+2026-01-20 19:22:21,394 - FineTuning - INFO - Results saved in: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\experiments\gridsearch_cosine_T_max50_dropout_rate0.2_finetune_batch8_finetune_lr0.0005_hidden_size128_optimizerAdam_pretrain_batch16_pretrain_lr0.005_scheduler_typeCosineAnnealingLR_step_gamma0.5_target256_20260120_192149
+2026-01-20 19:22:21,435 - FineTuning - INFO - Log file created: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\logs\training.log
+2026-01-20 19:22:21,435 - FineTuning - INFO - Log file created: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\logs\training.log
+2026-01-20 19:22:21,435 - FineTuning - INFO - FineTuning Pipeline initialized
+2026-01-20 19:22:21,435 - FineTuning - INFO - FineTuning Pipeline initialized
+2026-01-20 19:22:21,435 - FineTuning - INFO - Config loaded from: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\grid_search_results\grid_search_20260120_192148\config_exp_1.yaml
+2026-01-20 19:22:21,435 - FineTuning - INFO - Config loaded from: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\grid_search_results\grid_search_20260120_192148\config_exp_1.yaml
+2026-01-20 19:22:21,435 - FineTuning - INFO - Using device: cuda
+2026-01-20 19:22:21,435 - FineTuning - INFO - Using device: cuda
+2026-01-20 19:22:21,451 - FineTuning - INFO - Random seed set to: 42
+2026-01-20 19:22:21,451 - FineTuning - INFO - Random seed set to: 42
+2026-01-20 19:22:21,457 - FineTuning - INFO - Experiment directory created: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\experiments\gridsearch_cosine_T_max100_dropout_rate0.15_finetune_batch8_finetune_lr0.0005_hidden_size512_optimizerAdam_pretrain_batch16_pretrain_lr0.001_scheduler_typeStepLR_step_gamma0.7_target256_20260120_192221
+2026-01-20 19:22:21,457 - FineTuning - INFO - Experiment directory created: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\experiments\gridsearch_cosine_T_max100_dropout_rate0.15_finetune_batch8_finetune_lr0.0005_hidden_size512_optimizerAdam_pretrain_batch16_pretrain_lr0.001_scheduler_typeStepLR_step_gamma0.7_target256_20260120_192221
+2026-01-20 19:22:21,519 - FineTuning - INFO - Model parameters: {'total': 3155457, 'trainable': 3155457, 'frozen': 0}
+2026-01-20 19:22:21,519 - FineTuning - INFO - Model parameters: {'total': 3155457, 'trainable': 3155457, 'frozen': 0}
+2026-01-20 19:22:21,525 - FineTuning - INFO - Starting Full FineTuning Pipeline
+2026-01-20 19:22:21,525 - FineTuning - INFO - Starting Full FineTuning Pipeline
+2026-01-20 19:22:21,525 - FineTuning - INFO - Experiment: gridsearch_cosine_T_max100_dropout_rate0.15_finetune_batch8_finetune_lr0.0005_hidden_size512_optimizerAdam_pretrain_batch16_pretrain_lr0.001_scheduler_typeStepLR_step_gamma0.7
+2026-01-20 19:22:21,525 - FineTuning - INFO - Experiment: gridsearch_cosine_T_max100_dropout_rate0.15_finetune_batch8_finetune_lr0.0005_hidden_size512_optimizerAdam_pretrain_batch16_pretrain_lr0.001_scheduler_typeStepLR_step_gamma0.7
+2026-01-20 19:22:21,525 - FineTuning - INFO - Description: Grid search experiment: cosine_T_max100_dropout_rate0.15_finetune_batch8_finetune_lr0.0005_hidden_size512_optimizerAdam_pretrain_batch16_pretrain_lr0.001_scheduler_typeStepLR_step_gamma0.7
+2026-01-20 19:22:21,525 - FineTuning - INFO - Description: Grid search experiment: cosine_T_max100_dropout_rate0.15_finetune_batch8_finetune_lr0.0005_hidden_size512_optimizerAdam_pretrain_batch16_pretrain_lr0.001_scheduler_typeStepLR_step_gamma0.7
+2026-01-20 19:22:21,526 - FineTuning - INFO - ==================================================
+2026-01-20 19:22:21,526 - FineTuning - INFO - ==================================================
+2026-01-20 19:22:21,526 - FineTuning - INFO - STARTING PRETRAINING PHASE (Source Domain)
+2026-01-20 19:22:21,526 - FineTuning - INFO - STARTING PRETRAINING PHASE (Source Domain)
+2026-01-20 19:22:21,526 - FineTuning - INFO - ==================================================
+2026-01-20 19:22:21,526 - FineTuning - INFO - ==================================================
+2026-01-20 19:24:55,094 - FineTuning - INFO - Log file created: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\logs\training.log
+2026-01-20 19:24:55,094 - FineTuning - INFO - FineTuning Pipeline initialized
+2026-01-20 19:24:55,094 - FineTuning - INFO - Config loaded from: config/config.yaml
+2026-01-20 19:24:55,281 - FineTuning - INFO - Using device: cuda
+2026-01-20 19:24:55,298 - FineTuning - INFO - Random seed set to: 42
+2026-01-20 19:24:55,303 - FineTuning - INFO - Experiment directory created: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\experiments\fecu_to_fefe_finetune_target256_20260120_192455
+2026-01-20 19:24:55,310 - FineTuning - INFO - Model parameters: {'total': 791297, 'trainable': 791297, 'frozen': 0}
+2026-01-20 19:25:28,991 - FineTuning - INFO - Log file created: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\logs\training.log
+2026-01-20 19:25:28,992 - FineTuning - INFO - FineTuning Pipeline initialized
+2026-01-20 19:25:28,992 - FineTuning - INFO - Config loaded from: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\grid_search_results\grid_search_20260120_192528\config_exp_0.yaml
+2026-01-20 19:25:29,125 - FineTuning - INFO - Using device: cuda
+2026-01-20 19:25:29,125 - FineTuning - INFO - Random seed set to: 42
+2026-01-20 19:25:29,147 - FineTuning - INFO - Experiment directory created: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\experiments\gridsearch_cosine_T_max100_dropout_rate0.15_finetune_batch32_finetune_lr0.0005_hidden_size256_optimizerAdam_pretrain_batch16_pretrain_lr0.001_scheduler_typeCosineAnnealingLR_step_gamma0.7_target256_20260120_192529
+2026-01-20 19:25:29,156 - FineTuning - INFO - Model parameters: {'total': 791297, 'trainable': 791297, 'frozen': 0}
+2026-01-20 19:25:29,251 - FineTuning - INFO - Starting Full FineTuning Pipeline
+2026-01-20 19:25:29,251 - FineTuning - INFO - Experiment: gridsearch_cosine_T_max100_dropout_rate0.15_finetune_batch32_finetune_lr0.0005_hidden_size256_optimizerAdam_pretrain_batch16_pretrain_lr0.001_scheduler_typeCosineAnnealingLR_step_gamma0.7
+2026-01-20 19:25:29,251 - FineTuning - INFO - Description: Grid search experiment: cosine_T_max100_dropout_rate0.15_finetune_batch32_finetune_lr0.0005_hidden_size256_optimizerAdam_pretrain_batch16_pretrain_lr0.001_scheduler_typeCosineAnnealingLR_step_gamma0.7
+2026-01-20 19:25:29,251 - FineTuning - INFO - ==================================================
+2026-01-20 19:25:29,251 - FineTuning - INFO - STARTING PRETRAINING PHASE (Source Domain)
+2026-01-20 19:25:29,251 - FineTuning - INFO - ==================================================
+2026-01-20 19:25:52,995 - FineTuning - INFO - Pretraining phase completed
+2026-01-20 19:25:52,995 - FineTuning - INFO - ==================================================
+2026-01-20 19:25:52,995 - FineTuning - INFO - STARTING FINETUNING PHASE (Target Domain)
+2026-01-20 19:25:52,995 - FineTuning - INFO - ==================================================
+2026-01-20 19:25:53,004 - FineTuning - INFO - Finetuning parameters: {'total': 791297, 'trainable': 791297, 'frozen': 0}
+2026-01-20 19:25:57,101 - FineTuning - INFO - Finetuning phase completed
+2026-01-20 19:25:57,102 - FineTuning - INFO - ==================================================
+2026-01-20 19:25:57,102 - FineTuning - INFO - STARTING EVALUATION PHASE
+2026-01-20 19:25:57,102 - FineTuning - INFO - ==================================================
+2026-01-20 19:25:57,102 - FineTuning - INFO - Evaluating pretrained model on source domain...
+2026-01-20 19:25:57,118 - FineTuning - INFO - Pretrain-Source evaluation - RMSE: 20.9714, R2: 0.9303
+2026-01-20 19:25:59,204 - FineTuning - INFO - Evaluating finetuned model on both domains...
+2026-01-20 19:25:59,221 - FineTuning - INFO - Finetune-Source evaluation - RMSE: 57.3738, R2: 0.4785
+2026-01-20 19:26:01,245 - FineTuning - INFO - Finetune-Target evaluation - RMSE: 35.7276, R2: 0.7401
+2026-01-20 19:26:06,991 - FineTuning - INFO - Evaluation phase completed
+2026-01-20 19:26:06,991 - FineTuning - INFO - ==================================================
+2026-01-20 19:26:06,991 - FineTuning - INFO - EVALUATION SUMMARY
+2026-01-20 19:26:06,991 - FineTuning - INFO - ==================================================
+2026-01-20 19:26:06,992 - FineTuning - INFO - Pretrained model (Source): RMSE = 20.9714
+2026-01-20 19:26:06,992 - FineTuning - INFO - Finetuned model (Source): RMSE = 57.3738
+2026-01-20 19:26:06,992 - FineTuning - INFO - Finetuned model (Target): RMSE = 35.7276
+2026-01-20 19:26:07,013 - FineTuning - INFO - Final results saved to: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\experiments\gridsearch_cosine_T_max100_dropout_rate0.15_finetune_batch32_finetune_lr0.0005_hidden_size256_optimizerAdam_pretrain_batch16_pretrain_lr0.001_scheduler_typeCosineAnnealingLR_step_gamma0.7_target256_20260120_192529\results\final_results.json
+2026-01-20 19:26:07,014 - FineTuning - INFO - Results summary saved to: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\experiments\gridsearch_cosine_T_max100_dropout_rate0.15_finetune_batch32_finetune_lr0.0005_hidden_size256_optimizerAdam_pretrain_batch16_pretrain_lr0.001_scheduler_typeCosineAnnealingLR_step_gamma0.7_target256_20260120_192529\results\results_summary.csv
+2026-01-20 19:26:07,027 - FineTuning - INFO - Config file copied to: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\experiments\gridsearch_cosine_T_max100_dropout_rate0.15_finetune_batch32_finetune_lr0.0005_hidden_size256_optimizerAdam_pretrain_batch16_pretrain_lr0.001_scheduler_typeCosineAnnealingLR_step_gamma0.7_target256_20260120_192529\config.yaml
+2026-01-20 19:26:07,027 - FineTuning - INFO - ==================================================
+2026-01-20 19:26:07,027 - FineTuning - INFO - PIPELINE COMPLETED SUCCESSFULLY!
+2026-01-20 19:26:07,027 - FineTuning - INFO - ==================================================
+2026-01-20 19:26:07,027 - FineTuning - INFO - Pretrained Model (Source): RMSE = 20.9714
+2026-01-20 19:26:07,027 - FineTuning - INFO - Finetuned Model (Source): RMSE = 57.3738
+2026-01-20 19:26:07,027 - FineTuning - INFO - Finetuned Model (Target): RMSE = 35.7276
+2026-01-20 19:26:07,027 - FineTuning - INFO - Results saved in: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\experiments\gridsearch_cosine_T_max100_dropout_rate0.15_finetune_batch32_finetune_lr0.0005_hidden_size256_optimizerAdam_pretrain_batch16_pretrain_lr0.001_scheduler_typeCosineAnnealingLR_step_gamma0.7_target256_20260120_192529
+2026-01-20 19:26:07,074 - FineTuning - INFO - Log file created: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\logs\training.log
+2026-01-20 19:26:07,074 - FineTuning - INFO - Log file created: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\logs\training.log
+2026-01-20 19:26:07,074 - FineTuning - INFO - FineTuning Pipeline initialized
+2026-01-20 19:26:07,074 - FineTuning - INFO - FineTuning Pipeline initialized
+2026-01-20 19:26:07,075 - FineTuning - INFO - Config loaded from: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\grid_search_results\grid_search_20260120_192528\config_exp_1.yaml
+2026-01-20 19:26:07,075 - FineTuning - INFO - Config loaded from: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\grid_search_results\grid_search_20260120_192528\config_exp_1.yaml
+2026-01-20 19:26:07,075 - FineTuning - INFO - Using device: cuda
+2026-01-20 19:26:07,075 - FineTuning - INFO - Using device: cuda
+2026-01-20 19:26:07,083 - FineTuning - INFO - Random seed set to: 42
+2026-01-20 19:26:07,083 - FineTuning - INFO - Random seed set to: 42
+2026-01-20 19:26:07,088 - FineTuning - INFO - Experiment directory created: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\experiments\gridsearch_cosine_T_max100_dropout_rate0.2_finetune_batch8_finetune_lr0.0005_hidden_size512_optimizerAdam_pretrain_batch64_pretrain_lr0.001_scheduler_typeStepLR_step_gamma0.5_target256_20260120_192607
+2026-01-20 19:26:07,088 - FineTuning - INFO - Experiment directory created: C:/Users/4093050/Documents/プロセスインフォマティクス/FT/fine-tuning_model/src/simple-FT_ver1.00/data\experiments\gridsearch_cosine_T_max100_dropout_rate0.2_finetune_batch8_finetune_lr0.0005_hidden_size512_optimizerAdam_pretrain_batch64_pretrain_lr0.001_scheduler_typeStepLR_step_gamma0.5_target256_20260120_192607
+2026-01-20 19:26:07,115 - FineTuning - INFO - Model parameters: {'total': 3155457, 'trainable': 3155457, 'frozen': 0}
+2026-01-20 19:26:07,115 - FineTuning - INFO - Model parameters: {'total': 3155457, 'trainable': 3155457, 'frozen': 0}
+2026-01-20 19:26:07,131 - FineTuning - INFO - Starting Full FineTuning Pipeline
+2026-01-20 19:26:07,131 - FineTuning - INFO - Starting Full FineTuning Pipeline
+2026-01-20 19:26:07,132 - FineTuning - INFO - Experiment: gridsearch_cosine_T_max100_dropout_rate0.2_finetune_batch8_finetune_lr0.0005_hidden_size512_optimizerAdam_pretrain_batch64_pretrain_lr0.001_scheduler_typeStepLR_step_gamma0.5
+2026-01-20 19:26:07,132 - FineTuning - INFO - Experiment: gridsearch_cosine_T_max100_dropout_rate0.2_finetune_batch8_finetune_lr0.0005_hidden_size512_optimizerAdam_pretrain_batch64_pretrain_lr0.001_scheduler_typeStepLR_step_gamma0.5
+2026-01-20 19:26:07,132 - FineTuning - INFO - Description: Grid search experiment: cosine_T_max100_dropout_rate0.2_finetune_batch8_finetune_lr0.0005_hidden_size512_optimizerAdam_pretrain_batch64_pretrain_lr0.001_scheduler_typeStepLR_step_gamma0.5
+2026-01-20 19:26:07,132 - FineTuning - INFO - Description: Grid search experiment: cosine_T_max100_dropout_rate0.2_finetune_batch8_finetune_lr0.0005_hidden_size512_optimizerAdam_pretrain_batch64_pretrain_lr0.001_scheduler_typeStepLR_step_gamma0.5
+2026-01-20 19:26:07,132 - FineTuning - INFO - ==================================================
+2026-01-20 19:26:07,132 - FineTuning - INFO - ==================================================
+2026-01-20 19:26:07,132 - FineTuning - INFO - STARTING PRETRAINING PHASE (Source Domain)
+2026-01-20 19:26:07,132 - FineTuning - INFO - STARTING PRETRAINING PHASE (Source Domain)
+2026-01-20 19:26:07,132 - FineTuning - INFO - ==================================================
+2026-01-20 19:26:07,132 - FineTuning - INFO - ==================================================
+2026-01-20 19:26:19,352 - FineTuning - INFO - Pretraining phase completed
+2026-01-20 19:26:19,352 - FineTuning - INFO - Pretraining phase completed
+2026-01-20 19:26:19,352 - FineTuning - INFO - ==================================================
+2026-01-20 19:26:19,352 - FineTuning - INFO - ==================================================
+2026-01-20 19:26:19,352 - FineTuning - INFO - STARTING FINETUNING PHASE (Target Domain)
+2026-01-20 19:26:19,352 - FineTuning - INFO - STARTING FINETUNING PHASE (Target Domain)
+2026-01-20 19:26:19,352 - FineTuning - INFO - ==================================================
+2026-01-20 19:26:19,352 - FineTuning - INFO - ==================================================
+2026-01-20 19:26:19,366 - FineTuning - INFO - Finetuning parameters: {'total': 3155457, 'trainable': 3155457, 'frozen': 0}
+2026-01-20 19:26:19,366 - FineTuning - INFO - Finetuning parameters: {'total': 3155457, 'trainable': 3155457, 'frozen': 0}
+2026-01-20 19:26:41,772 - FineTuning - INFO - Finetuning phase completed
+2026-01-20 19:26:41,772 - FineTuning - INFO - Finetuning phase completed
+2026-01-20 19:26:41,772 - FineTuning - INFO - ==================================================
+2026-01-20 19:26:41,772 - FineTuning - INFO - ==================================================
+2026-01-20 19:26:41,772 - FineTuning - INFO - STARTING EVALUATION PHASE
+2026-01-20 19:26:41,772 - FineTuning - INFO - STARTING EVALUATION PHASE
+2026-01-20 19:26:41,772 - FineTuning - INFO - ==================================================
+2026-01-20 19:26:41,772 - FineTuning - INFO - ==================================================
+2026-01-20 19:26:41,772 - FineTuning - INFO - Evaluating pretrained model on source domain...
+2026-01-20 19:26:41,772 - FineTuning - INFO - Evaluating pretrained model on source domain...
+2026-01-20 19:26:41,805 - FineTuning - INFO - Pretrain-Source evaluation - RMSE: 21.4783, R2: 0.9269
+2026-01-20 19:26:41,805 - FineTuning - INFO - Pretrain-Source evaluation - RMSE: 21.4783, R2: 0.9269
+2026-01-20 19:26:43,788 - FineTuning - INFO - Evaluating finetuned model on both domains...
+2026-01-20 19:26:43,788 - FineTuning - INFO - Evaluating finetuned model on both domains...
+2026-01-20 19:26:43,815 - FineTuning - INFO - Finetune-Source evaluation - RMSE: 68.9433, R2: 0.2470
+2026-01-20 19:26:43,815 - FineTuning - INFO - Finetune-Source evaluation - RMSE: 68.9433, R2: 0.2470
+2026-01-20 19:26:46,119 - FineTuning - INFO - Finetune-Target evaluation - RMSE: 37.5135, R2: 0.7135
+2026-01-20 19:26:46,119 - FineTuning - INFO - Finetune-Target evaluation - RMSE: 37.5135, R2: 0.7135

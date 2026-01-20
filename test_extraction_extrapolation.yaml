@@ -1,9 +1,0 @@
-# 外挿データ抽出テスト設定
-input_filename: "test_output_2.csv"
-output_filename: "extracted_data.csv"
-input_path: "C:\\Users\\4093050\\Documents\\2025年度_業務\\20_ドメイン適応\\FT\\input\\preprocessed"
-output_path: "C:\\Users\\4093050\\Documents\\2025年度_業務\\20_ドメイン適応\\FT\\output"
-random_seed: 42
-extraction_pattern: 3  # 外挿データ抽出
-learning_data_num: 200
-validation_data_num: 100
