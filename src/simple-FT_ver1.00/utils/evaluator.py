@@ -114,8 +114,11 @@ class Evaluator:
         plt.tight_layout()
         
         if save_path:
-            plt.savefig(save_path, dpi=150, bbox_inches='tight')
-            self.logger.info(f"Predictions plot saved to {save_path}")
+            try:
+                plt.savefig(save_path, dpi=150, bbox_inches='tight', format='png')
+                self.logger.info(f"Predictions plot saved to {save_path}")
+            except Exception as e:
+                self.logger.warning(f"Could not save predictions plot: {e}")
         else:
             plt.show()
         
@@ -180,8 +183,11 @@ class Evaluator:
         plt.tight_layout()
         
         if save_path:
-            plt.savefig(save_path, dpi=150, bbox_inches='tight')
-            self.logger.info(f"Residuals analysis plot saved to {save_path}")
+            try:
+                plt.savefig(save_path, dpi=150, bbox_inches='tight', format='png')
+                self.logger.info(f"Residuals analysis plot saved to {save_path}")
+            except Exception as e:
+                self.logger.warning(f"Could not save residuals plot: {e}")
         else:
             plt.show()
         
@@ -244,19 +250,25 @@ class Evaluator:
         plt.tight_layout()
         
         if save_path:
-            plt.savefig(save_path, dpi=150, bbox_inches='tight')
-            self.logger.info(f"Feature importance plot saved to {save_path}")
+            try:
+                plt.savefig(save_path, dpi=150, bbox_inches='tight', format='png')
+                self.logger.info(f"Feature importance plot saved to {save_path}")
+            except Exception as e:
+                self.logger.warning(f"Could not save feature importance plot: {e}")
         else:
             plt.show()
         
         plt.close()
     
-    def compare_models(self, results: Dict[str, Dict], 
-                      title: str = "Model Comparison", 
-                      save_path: str = None) -> None:
+    def compare_models(
+        self,
+        results: Dict[str, Dict],
+        title: str = "Model Comparison",
+        save_path: str = None
+    ) -> None:
         """
         複数モデルの性能比較
-        
+
         Args:
             results (Dict[str, Dict]): モデル名をキーとした結果辞書
             title (str): プロットタイトル
@@ -264,7 +276,7 @@ class Evaluator:
         """
         model_names = list(results.keys())
         metrics = ['RMSE', 'MAE', 'R2']
-        
+
         # メトリクス値を抽出
         metric_values = {metric: [] for metric in metrics}
         
@@ -274,40 +286,47 @@ class Evaluator:
                     metric_values[metric].append(results[model_name][metric])
                 else:
                     metric_values[metric].append(0)
-        
+
         # プロット
         fig, axes = plt.subplots(1, 3, figsize=(15, 5))
-        
+
         for i, metric in enumerate(metrics):
             bars = axes[i].bar(model_names, metric_values[metric])
             axes[i].set_title(f'{metric} Comparison')
             axes[i].set_ylabel(metric)
             axes[i].tick_params(axis='x', rotation=45)
-            
+
             # 値をバーの上に表示
             for bar, value in zip(bars, metric_values[metric]):
                 height = bar.get_height()
-                axes[i].text(bar.get_x() + bar.get_width()/2., height + 0.01,
-                           f'{value:.4f}', ha='center', va='bottom')
-        
+                axes[i].text(
+                    bar.get_x() + bar.get_width()/2.,
+                    height + 0.01,
+                    f'{value:.4f}',
+                    ha='center',
+                    va='bottom'
+                )
+
         plt.suptitle(title, fontsize=14, fontweight='bold')
         plt.tight_layout()
-        
+
         if save_path:
-            plt.savefig(save_path, dpi=150, bbox_inches='tight')
-            self.logger.info(f"Model comparison plot saved to {save_path}")
+            try:
+                plt.savefig(save_path, dpi=150, bbox_inches='tight', format='png')
+                self.logger.info(f"Model comparison plot saved to {save_path}")
+            except Exception as e:
+                self.logger.warning(f"Could not save model comparison plot: {e}")
         else:
             plt.show()
-        
+
         plt.close()
-    
+
     def plot_domain_analysis(self, source_results: Dict, target_results: Dict,
                             source_data: Tuple[np.ndarray, np.ndarray],
                             target_data: Tuple[np.ndarray, np.ndarray],
                             save_path: str = None) -> None:
         """
         ドメイン間の分析プロット
-        
         Args:
             source_results (Dict): ソースドメインの結果
             target_results (Dict): ターゲットドメインの結果
@@ -317,7 +336,7 @@ class Evaluator:
         """
         source_X, source_y = source_data
         target_X, target_y = target_data
-        
+
         # データクリーニングを実行
         source_X, source_y = self._clean_data_for_analysis(source_X, source_y)
         target_X, target_y = self._clean_data_for_analysis(target_X, target_y)
@@ -403,8 +422,17 @@ class Evaluator:
         plt.tight_layout()
         
         if save_path:
-            plt.savefig(save_path, dpi=150, bbox_inches='tight')
-            self.logger.info(f"Domain analysis plot saved to {save_path}")
+            try:
+                plt.savefig(save_path, dpi=150, bbox_inches='tight', format='png')
+                self.logger.info(f"Domain analysis plot saved to {save_path}")
+            except Exception as e:
+                self.logger.warning(f"Could not save domain analysis plot: {e}")
+                # 代替保存方法を試行
+                try:
+                    plt.savefig(save_path.replace('.png', '_backup.png'), format='png', bbox_inches='tight')
+                    self.logger.info(f"Domain analysis plot saved to {save_path.replace('.png', '_backup.png')}")
+                except Exception as e2:
+                    self.logger.error(f"Failed to save domain analysis plot: {e2}")
         else:
             plt.show()
         

@@ -262,85 +262,83 @@ class FineTuningPipeline:
     
     def evaluate_models(self) -> dict:
         """
-        モデルの評価を実行
+        モデルの評価を実行（Source/Target別評価）
         
         Returns:
-            dict: 評価結果
+            dict: 評価結果 
         """
         self.logger.info("=" * 50)
         self.logger.info("STARTING EVALUATION PHASE")
         self.logger.info("=" * 50)
         
+        evaluation_results = {
+            'pretrain': {'source': {}},
+            'finetune': {'source': {}, 'target': {}}
+        }
+        
         # テストデータの取得
         test_data = self.data_manager.get_test_data('both')
         
-        evaluation_results = {}
+        # 1. 事前学習モデルでの評価（Sourceデータのみ）
+        self.logger.info("Evaluating pretrained model on source domain...")
+        pretrained_model_path = os.path.join(self.exp_dir, 'models', 'pretrained_model.pth')
+        if os.path.exists(pretrained_model_path):
+            # 事前学習モデルを読み込み
+            pretrained_state = torch.load(pretrained_model_path, map_location=self.device, weights_only=False)
+            self.model.load_state_dict(pretrained_state['model_state_dict'])
+            
+            # Sourceデータで評価
+            if 'source' in test_data:
+                X_test_source, y_test_source = test_data['source']
+                source_metrics = self._evaluate_on_data(X_test_source, y_test_source, "Pretrain-Source")
+                evaluation_results['pretrain']['source'] = source_metrics
+                
+                # プロット生成
+                pred_plot_path = os.path.join(self.exp_dir, 'plots', 'pretrain_source_predictions.png')
+                residuals_plot_path = os.path.join(self.exp_dir, 'plots', 'pretrain_source_residuals.png')
+                self._generate_evaluation_plots(X_test_source, y_test_source, 
+                                              "Pretrained Model - Source Domain (FeCu)", 
+                                              pred_plot_path, residuals_plot_path)
         
-        # ソースドメインでの評価
-        if 'source' in test_data:
-            X_test_source, y_test_source = test_data['source']
+        # 2. ファインチューニング後モデルでの評価（Source + Target）
+        self.logger.info("Evaluating finetuned model on both domains...")
+        finetuned_model_path = os.path.join(self.exp_dir, 'models', 'finetuned_model.pth')
+        if os.path.exists(finetuned_model_path):
+            # ファインチューニング後モデルを読み込み
+            finetuned_state = torch.load(finetuned_model_path, map_location=self.device, weights_only=False)
+            self.model.load_state_dict(finetuned_state['model_state_dict'])
             
-            # DataLoader作成
-            test_dataset_source = self.data_manager.create_dataloaders(
-                X_test_source, y_test_source, batch_size=64, shuffle_train=False
-            )['train']  # テストなのでtrainキーを使用
+            # Sourceデータで評価
+            if 'source' in test_data:
+                X_test_source, y_test_source = test_data['source']
+                source_metrics = self._evaluate_on_data(X_test_source, y_test_source, "Finetune-Source")
+                evaluation_results['finetune']['source'] = source_metrics
+                
+                # プロット生成
+                pred_plot_path = os.path.join(self.exp_dir, 'plots', 'finetune_source_predictions.png')
+                residuals_plot_path = os.path.join(self.exp_dir, 'plots', 'finetune_source_residuals.png')
+                self._generate_evaluation_plots(X_test_source, y_test_source, 
+                                              "Finetuned Model - Source Domain (FeCu)", 
+                                              pred_plot_path, residuals_plot_path)
             
-            # 予測実行
-            y_pred_source, y_true_source = self.trainer.predict(test_dataset_source)
-            
-            # メトリクス計算
-            source_metrics = self.evaluator.calculate_detailed_metrics(y_true_source, y_pred_source)
-            evaluation_results['source'] = source_metrics
-            
-            self.logger.info(f"Source domain evaluation: {source_metrics}")
-            
-            # 予測結果プロット
-            pred_plot_path = os.path.join(self.exp_dir, 'plots', 'source_predictions.png')
-            self.evaluator.plot_predictions(y_true_source, y_pred_source, 
-                                          "Source Domain (FeCu) - Predictions vs Actual", 
-                                          pred_plot_path)
-            
-            # 残差分析
-            residuals_plot_path = os.path.join(self.exp_dir, 'plots', 'source_residuals.png')
-            self.evaluator.plot_residuals_analysis(y_true_source, y_pred_source,
-                                                  "Source Domain (FeCu) - Residuals Analysis",
-                                                  residuals_plot_path)
+            # Targetデータで評価
+            if 'target' in test_data:
+                X_test_target, y_test_target = test_data['target']
+                target_metrics = self._evaluate_on_data(X_test_target, y_test_target, "Finetune-Target")
+                evaluation_results['finetune']['target'] = target_metrics
+                
+                # プロット生成
+                pred_plot_path = os.path.join(self.exp_dir, 'plots', 'finetune_target_predictions.png')
+                residuals_plot_path = os.path.join(self.exp_dir, 'plots', 'finetune_target_residuals.png')
+                self._generate_evaluation_plots(X_test_target, y_test_target, 
+                                              "Finetuned Model - Target Domain (FeFe)", 
+                                              pred_plot_path, residuals_plot_path)
         
-        # ターゲットドメインでの評価
-        if 'target' in test_data:
-            X_test_target, y_test_target = test_data['target']
-            
-            # DataLoader作成
-            test_dataset_target = self.data_manager.create_dataloaders(
-                X_test_target, y_test_target, batch_size=64, shuffle_train=False
-            )['train']  # テストなのでtrainキーを使用
-            
-            # 予測実行
-            y_pred_target, y_true_target = self.trainer.predict(test_dataset_target)
-            
-            # メトリクス計算
-            target_metrics = self.evaluator.calculate_detailed_metrics(y_true_target, y_pred_target)
-            evaluation_results['target'] = target_metrics
-            
-            self.logger.info(f"Target domain evaluation: {target_metrics}")
-            
-            # 予測結果プロット
-            pred_plot_path = os.path.join(self.exp_dir, 'plots', 'target_predictions.png')
-            self.evaluator.plot_predictions(y_true_target, y_pred_target, 
-                                          "Target Domain (FeFe) - Predictions vs Actual", 
-                                          pred_plot_path)
-            
-            # 残差分析
-            residuals_plot_path = os.path.join(self.exp_dir, 'plots', 'target_residuals.png')
-            self.evaluator.plot_residuals_analysis(y_true_target, y_pred_target,
-                                                  "Target Domain (FeFe) - Residuals Analysis",
-                                                  residuals_plot_path)
-        
-        # ドメイン間比較分析
+        # 3. ドメイン間・モデル間比較分析
         if 'source' in test_data and 'target' in test_data:
             domain_plot_path = os.path.join(self.exp_dir, 'plots', 'domain_analysis.png')
             self.evaluator.plot_domain_analysis(
-                evaluation_results['source'], evaluation_results['target'],
+                evaluation_results['finetune']['source'], evaluation_results['finetune']['target'],
                 test_data['source'], test_data['target'],
                 domain_plot_path
             )
@@ -352,20 +350,92 @@ class FineTuningPipeline:
                                              "Feature Importance Analysis", 
                                              feature_plot_path)
         
-        # モデル比較（事前学習vs事後学習が可能な場合）
+        # モデル比較（事前学習vs事後学習）
         model_comparison = {
-            'Finetuned_Model_Source': evaluation_results.get('source', {}),
-            'Finetuned_Model_Target': evaluation_results.get('target', {})
+            'Pretrained_Source': evaluation_results['pretrain']['source'],
+            'Finetuned_Source': evaluation_results['finetune']['source'],
+            'Finetuned_Target': evaluation_results['finetune']['target']
         }
         
         comparison_plot_path = os.path.join(self.exp_dir, 'plots', 'model_comparison.png')
         self.evaluator.compare_models(model_comparison, 
-                                    "Model Performance Comparison", 
+                                    "Model Performance Comparison (Pretrain vs Finetune)", 
                                     comparison_plot_path)
         
         self.logger.info("Evaluation phase completed")
         
+        # ログに詳細結果を出力
+        self.logger.info("=" * 50)
+        self.logger.info("EVALUATION SUMMARY")
+        self.logger.info("=" * 50)
+        
+        if evaluation_results['pretrain']['source']:
+            self.logger.info(f"Pretrained model (Source): RMSE = {evaluation_results['pretrain']['source'].get('RMSE', 'N/A'):.4f}")
+        
+        if evaluation_results['finetune']['source']:
+            self.logger.info(f"Finetuned model (Source): RMSE = {evaluation_results['finetune']['source'].get('RMSE', 'N/A'):.4f}")
+        
+        if evaluation_results['finetune']['target']:
+            self.logger.info(f"Finetuned model (Target): RMSE = {evaluation_results['finetune']['target'].get('RMSE', 'N/A'):.4f}")
+        
         return evaluation_results
+    
+    def _evaluate_on_data(self, X_test: np.ndarray, y_test: np.ndarray, eval_name: str) -> dict:
+        """
+        指定データでのモデル評価
+        
+        Args:
+            X_test (np.ndarray): テスト特徴量
+            y_test (np.ndarray): テスト目的変数
+            eval_name (str): 評価名
+            
+        Returns:
+            dict: 評価メトリクス
+        """
+        # DataLoader作成
+        test_dataset = self.data_manager.create_dataloaders(
+            X_test, y_test, batch_size=64, shuffle_train=False
+        )['train']  # テストなのでtrainキーを使用
+        
+        # 予測実行
+        y_pred, y_true = self.trainer.predict(test_dataset)
+        
+        # メトリクス計算
+        metrics = self.evaluator.calculate_detailed_metrics(y_true, y_pred)
+        
+        self.logger.info(f"{eval_name} evaluation - RMSE: {metrics.get('RMSE', 'N/A'):.4f}, R2: {metrics.get('R2', 'N/A'):.4f}")
+        
+        return metrics
+    
+    def _generate_evaluation_plots(self, X_test: np.ndarray, y_test: np.ndarray, 
+                                 title: str, pred_plot_path: str, residuals_plot_path: str):
+        """
+        評価プロット生成
+        
+        Args:
+            X_test (np.ndarray): テスト特徴量
+            y_test (np.ndarray): テスト目的変数
+            title (str): プロットタイトル
+            pred_plot_path (str): 予測プロット保存パス
+            residuals_plot_path (str): 残差プロット保存パス
+        """
+        # DataLoader作成
+        test_dataset = self.data_manager.create_dataloaders(
+            X_test, y_test, batch_size=64, shuffle_train=False
+        )['train']
+        
+        # 予測実行
+        y_pred, y_true = self.trainer.predict(test_dataset)
+        
+        # 予測結果プロット
+        self.evaluator.plot_predictions(y_true, y_pred, 
+                                      f"{title} - Predictions vs Actual", 
+                                      pred_plot_path)
+        
+        # 残差分析プロット
+        self.evaluator.plot_residuals_analysis(y_true, y_pred,
+                                              f"{title} - Residuals Analysis",
+                                              residuals_plot_path)
     
     def save_final_results(self, pretrain_results: dict, finetune_results: dict, 
                           evaluation_results: dict) -> None:
@@ -444,13 +514,18 @@ class FineTuningPipeline:
             self.logger.info("PIPELINE COMPLETED SUCCESSFULLY!")
             self.logger.info("=" * 50)
             
-            if 'source' in evaluation_results:
-                source_rmse = evaluation_results['source']['RMSE']
-                self.logger.info(f"Final Source Domain RMSE: {source_rmse:.4f}")
+            # Source/Target別でのRMSE結果サマリー
+            if evaluation_results['pretrain']['source']:
+                pretrain_source_rmse = evaluation_results['pretrain']['source']['RMSE']
+                self.logger.info(f"Pretrained Model (Source): RMSE = {pretrain_source_rmse:.4f}")
             
-            if 'target' in evaluation_results:
-                target_rmse = evaluation_results['target']['RMSE']
-                self.logger.info(f"Final Target Domain RMSE: {target_rmse:.4f}")
+            if evaluation_results['finetune']['source']:
+                finetune_source_rmse = evaluation_results['finetune']['source']['RMSE']
+                self.logger.info(f"Finetuned Model (Source): RMSE = {finetune_source_rmse:.4f}")
+            
+            if evaluation_results['finetune']['target']:
+                finetune_target_rmse = evaluation_results['finetune']['target']['RMSE']
+                self.logger.info(f"Finetuned Model (Target): RMSE = {finetune_target_rmse:.4f}")
             
             self.logger.info(f"Results saved in: {self.exp_dir}")
             

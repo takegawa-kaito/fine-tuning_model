@@ -30,14 +30,12 @@ class EarlyStopping:
         self.counter = 0
         self.best_loss = None
         self.early_stop = False
-        
+
     def __call__(self, val_loss: float) -> bool:
         """
         早期停止の判定
-        
         Args:
             val_loss (float): 検証損失
-            
         Returns:
             bool: 早期停止するかどうか
         """
@@ -50,11 +48,9 @@ class EarlyStopping:
             self.counter += 1
             if self.verbose:
                 print(f'EarlyStopping counter: {self.counter} out of {self.patience}')
-            
             if self.counter >= self.patience:
                 self.early_stop = True
                 return True
-        
         return False
 
 
@@ -66,11 +62,9 @@ class MetricsCalculator:
     def calculate_metrics(y_true: np.ndarray, y_pred: np.ndarray) -> Dict[str, float]:
         """
         各種評価メトリクスを計算
-        
         Args:
             y_true (np.ndarray): 正解値
             y_pred (np.ndarray): 予測値
-            
         Returns:
             Dict[str, float]: 評価メトリクス
         """
@@ -103,38 +97,42 @@ class Trainer:
         self.config = config
         self.device = device
         self.logger = logging.getLogger(__name__)
-        
+
         # モデルをデバイスに移動
         self.model.to(self.device)
-        
+
         # 学習履歴
         self.train_history = {'loss': [], 'val_loss': []}
         self.metrics_history = {}
-        
+
         # 最良モデルの保存用
         self.best_model_state = None
         self.best_val_loss = float('inf')
-        
-    def setup_optimizer(self, learning_rate: float, optimizer_name: str = 'Adam') -> torch.optim.Optimizer:
+
+    def setup_optimizer(self, learning_rate: float, optimizer_name: str = 'Adam', 
+                       weight_decay: float = 0.0) -> torch.optim.Optimizer:
         """
         オプティマイザーの設定
         
         Args:
             learning_rate (float): 学習率
             optimizer_name (str): オプティマイザー名
+            weight_decay (float): 重み減衰率
             
         Returns:
             torch.optim.Optimizer: オプティマイザー
         """
         if optimizer_name == 'Adam':
-            optimizer = optim.Adam(self.model.parameters(), lr=learning_rate)
+            optimizer = optim.Adam(self.model.parameters(), lr=learning_rate, weight_decay=weight_decay)
         elif optimizer_name == 'SGD':
-            optimizer = optim.SGD(self.model.parameters(), lr=learning_rate, momentum=0.9)
+            optimizer = optim.SGD(self.model.parameters(), lr=learning_rate, 
+                                momentum=0.9, weight_decay=weight_decay)
         elif optimizer_name == 'AdamW':
-            optimizer = optim.AdamW(self.model.parameters(), lr=learning_rate)
+            optimizer = optim.AdamW(self.model.parameters(), lr=learning_rate, weight_decay=weight_decay)
         else:
             raise ValueError(f"Unknown optimizer: {optimizer_name}")
         
+        self.logger.info(f"Optimizer: {optimizer_name}, LR: {learning_rate}, Weight Decay: {weight_decay}")
         return optimizer
     
     def setup_scheduler(self, optimizer: torch.optim.Optimizer, 
@@ -274,9 +272,11 @@ class Trainer:
         train_config = self.config[config_key]
         
         # オプティマイザーとスケジューラーの設定
+        weight_decay = train_config.get('weight_decay', 0.0)
         optimizer = self.setup_optimizer(
             train_config['learning_rate'], 
-            train_config['optimizer']
+            train_config['optimizer'],
+            weight_decay
         )
         scheduler = self.setup_scheduler(optimizer, train_config['scheduler'])
         
@@ -423,7 +423,7 @@ class Trainer:
         Returns:
             Dict: 読み込んだ情報
         """
-        checkpoint = torch.load(load_path, map_location=self.device)
+        checkpoint = torch.load(load_path, map_location=self.device, weights_only=False)
         self.model.load_state_dict(checkpoint['model_state_dict'])
         
         if 'train_history' in checkpoint:
